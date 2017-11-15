@@ -66,9 +66,10 @@ public class CategoryService {
 	public Category save(final Category category) {
 		Assert.notNull(category);
 		Assert.notNull(this.administratorService.findByPrincipal());
-
+		Collection<Category> categories;
 		Category result;
 
+		//categories=categoryRepository.findAll();
 		result = this.categoryRepository.save(category);
 		//No se añade ninguna Trip al crearse una category porque asi lo dice en los requisitos
 
@@ -84,13 +85,9 @@ public class CategoryService {
 		tripsWithThisCategory = this.tripService.findAllTripsByCategoryId(category.getId());
 		Assert.isTrue(!(this.configurationSystemService.defaultCategories().contains(category)));
 
-		if (category.getSubCategories().isEmpty())
-			this.categoryRepository.delete(category);
-		else {
-			for (final Category subCategory : category.getSubCategories())
-				this.delete(subCategory);
-			this.categoryRepository.delete(category);
-		}
+		Assert.isTrue(category.getSubCategories().isEmpty());
+		this.categoryRepository.delete(category);
+		//Se quita de trip el category quitarlo
 		if (tripsWithThisCategory != null)
 			for (final Trip trip : tripsWithThisCategory)
 				trip.getCategories().remove(category);

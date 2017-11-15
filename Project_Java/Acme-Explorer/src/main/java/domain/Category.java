@@ -15,6 +15,9 @@ import org.hibernate.validator.constraints.NotBlank;
 
 @Entity
 @Access(AccessType.PROPERTY)
+//@Table(uniqueConstraints = {
+//	@UniqueConstraint(columnNames = "name"), @UniqueConstraint(columnNames = "fatherCategory_id")
+//})
 public class Category extends DomainEntity {
 
 	// Attributes -------------------------------------------------------------
@@ -22,7 +25,6 @@ public class Category extends DomainEntity {
 	private String	name;
 
 
-	//@Column(unique = true)
 	@NotBlank
 	public String getName() {
 		return this.name;
