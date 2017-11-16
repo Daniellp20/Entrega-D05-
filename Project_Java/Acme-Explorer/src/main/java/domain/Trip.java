@@ -133,30 +133,20 @@ public class Trip extends DomainEntity {
 
 
 	// Relationships ----------------------------------------------------------
-	private Ranger						ranger;
-	private Manager						manager;
-	private Collection<SurvivalClass>	classes;
-	private Collection<Story>			stories;
-	private Collection<ApplicationFor>	applicationsFor;
-	private Collection<AuditRecord>		auditRecords;
-	private Collection<Note>			notes;
-	private Collection<Category>		categories;
-	private Collection<Sponsorship>		sponsorships;
-	private Collection<Stage>			stages;
-	private LegalText					legalText;
-	private Collection<Tag>				tags;
+	//private Ranger						ranger;
+	private Manager				manager;
+	//private Collection<SurvivalClass>	classes;
+	//private Collection<Story>			stories;
+	//private Collection<ApplicationFor>	applicationsFor;
+	//private Collection<AuditRecord>		auditRecords;
+	private Collection<Note>	notes;
+	//private Collection<Category>		categories;
+	//private Collection<Sponsorship>		sponsorships;
+	private Collection<Stage>	stages;
+	//private LegalText					legalText;
+	private Collection<Tag>		tags;
 
 
-	@NotNull
-	@Valid
-	@ManyToOne(optional = false)
-	public Ranger getRanger() {
-		return this.ranger;
-	}
-
-	public void setRanger(final Ranger ranger) {
-		this.ranger = ranger;
-	}
 	@NotNull
 	@Valid
 	@ManyToOne(optional = false)
@@ -166,50 +156,6 @@ public class Trip extends DomainEntity {
 
 	public void setManager(final Manager manager) {
 		this.manager = manager;
-	}
-
-	@NotNull
-	@OneToMany(mappedBy = "trip")
-	@Valid
-	public Collection<SurvivalClass> getClasses() {
-		return this.classes;
-	}
-
-	public void setClasses(final Collection<SurvivalClass> classes) {
-		this.classes = classes;
-	}
-
-	@NotNull
-	@OneToMany(mappedBy = "trip")
-	@Valid
-	public Collection<Story> getStories() {
-		return this.stories;
-	}
-
-	public void setStories(final Collection<Story> stories) {
-		this.stories = stories;
-	}
-
-	@NotNull
-	@OneToMany(mappedBy = "trip")
-	@Valid
-	public Collection<ApplicationFor> getApplicationsFor() {
-		return this.applicationsFor;
-	}
-
-	public void setApplicationsFor(final Collection<ApplicationFor> applicationsFor) {
-		this.applicationsFor = applicationsFor;
-	}
-
-	@NotNull
-	@OneToMany(mappedBy = "trip")
-	@Valid
-	public Collection<AuditRecord> getAuditRecords() {
-		return this.auditRecords;
-	}
-
-	public void setAuditRecords(final Collection<AuditRecord> auditRecords) {
-		this.auditRecords = auditRecords;
 	}
 
 	@Valid
@@ -224,28 +170,6 @@ public class Trip extends DomainEntity {
 	}
 
 	@NotNull
-	@ManyToMany
-	@Valid
-	public Collection<Category> getCategories() {
-		return this.categories;
-	}
-
-	public void setCategories(final Collection<Category> categories) {
-		this.categories = categories;
-	}
-
-	@NotNull
-	@OneToMany(mappedBy = "trip")
-	@Valid
-	public Collection<Sponsorship> getSponsorships() {
-		return this.sponsorships;
-	}
-
-	public void setSponsorships(final Collection<Sponsorship> sponsorships) {
-		this.sponsorships = sponsorships;
-	}
-
-	@NotNull
 	@OneToMany(cascade = CascadeType.ALL)
 	@Valid
 	public Collection<Stage> getStages() {
@@ -254,17 +178,6 @@ public class Trip extends DomainEntity {
 
 	public void setStages(final Collection<Stage> stages) {
 		this.stages = stages;
-	}
-
-	@Valid
-	@NotNull
-	@ManyToOne(optional = false)
-	public LegalText getLegalText() {
-		return this.legalText;
-	}
-
-	public void setLegalText(final LegalText legalText) {
-		this.legalText = legalText;
 	}
 
 	@NotNull

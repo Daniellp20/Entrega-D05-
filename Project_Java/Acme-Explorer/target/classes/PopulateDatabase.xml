@@ -1073,43 +1073,10 @@
 		<property name="finishDate" value="2018/02/04"></property>
 		<property name="reasonWhy" value="reasonWhy 1"></property>
 		<property name="cancelled" value="true"></property>
-
-		<property name="ranger" ref="ranger3"></property>
 		<property name="manager" ref="manager1"></property>
-		<property name="classes">
-			<list>
-				<ref bean="survivalClass1"></ref>
-			</list>
-		</property>
-		<property name="stories">
-			<list>
-				<ref bean="story1"></ref>
-			</list>
-		</property>
-		<property name="applicationsFor">
-			<list>
-				<ref bean="applicationFor1"></ref>
-				<ref bean="applicationFor7"></ref>
-			</list>
-		</property>
-		<property name="auditRecords">
-			<list>
-				<ref bean="auditrecord1"></ref>
-			</list>
-		</property>
 		<property name="notes">
 			<list>
 				<ref bean="note1"></ref>
-			</list>
-		</property>
-		<property name="categories">
-			<list>
-				<ref bean="safari"></ref>
-			</list>
-		</property>
-		<property name="sponsorships">
-			<list>
-				<ref bean="sponsorship1"></ref>
 			</list>
 		</property>
 		<property name="stages">
@@ -1118,7 +1085,6 @@
 				<ref bean="stage2"></ref>
 			</list>
 		</property>
-		<property name="legalText" ref="legalText1"></property>
 		<property name="tags">
 			<list>
 				<ref bean="tag1"></ref>
@@ -1144,41 +1110,10 @@
 			<null />
 		</property>
 		<property name="cancelled" value="false"></property>
-
-		<property name="ranger" ref="ranger1"></property>
 		<property name="manager" ref="manager1"></property>
-		<property name="classes">
-			<list>
-				<ref bean="survivalClass2"></ref>
-			</list>
-		</property>
-		<property name="stories">
-			<list>
-				<ref bean="story2"></ref>
-			</list>
-		</property>
-		<property name="applicationsFor">
-			<list>
-				<ref bean="applicationFor2"></ref>
-			</list>
-		</property>
-		<property name="auditRecords">
-			<list>
-			</list>
-		</property>
 		<property name="notes">
 			<list>
 				<ref bean="note2"></ref>
-			</list>
-		</property>
-		<property name="categories">
-			<list>
-				<ref bean="safari"></ref>
-			</list>
-		</property>
-		<property name="sponsorships">
-			<list>
-				<ref bean="sponsorship2"></ref>
 			</list>
 		</property>
 		<property name="stages">
@@ -1186,7 +1121,6 @@
 				<ref bean="stage6"></ref>
 			</list>
 		</property>
-		<property name="legalText" ref="legalText2"></property>
 		<property name="tags">
 			<list>
 				<ref bean="tag2"></ref>
@@ -1213,44 +1147,10 @@
 			<null />
 		</property>
 		<property name="cancelled" value="false"></property>
-
-		<property name="ranger" ref="ranger2"></property>
 		<property name="manager" ref="manager2"></property>
-		<property name="classes">
-			<list>
-				<ref bean="survivalClass3"></ref>
-			</list>
-		</property>
-		<property name="stories">
-			<list>
-				<ref bean="story3"></ref>
-			</list>
-		</property>
-		<property name="applicationsFor">
-			<list>
-				<ref bean="applicationFor3"></ref>
-			</list>
-		</property>
-		<property name="auditRecords">
-			<list>
-				<ref bean="auditrecord3"></ref>
-			</list>
-		</property>
 		<property name="notes">
 			<list>
 				<ref bean="note3"></ref>
-			</list>
-		</property>
-		<property name="categories">
-			<list>
-				<ref bean="climbing"></ref>
-
-			</list>
-		</property>
-		<property name="sponsorships">
-			<list>
-				<ref bean="sponsorship2"></ref>
-				<ref bean="sponsorship3"></ref>
 			</list>
 		</property>
 		<property name="stages">
@@ -1258,7 +1158,6 @@
 				<ref bean="stage3"></ref>
 			</list>
 		</property>
-		<property name="legalText" ref="legalText3"></property>
 		<property name="tags">
 			<list>
 				<ref bean="tag2"></ref>
@@ -1283,46 +1182,11 @@
 		<property name="finishDate" value="2015/08/04"></property>
 		<property name="reasonWhy" value="reasonWhy 4"></property>
 		<property name="cancelled" value="true"></property>
-
-		<property name="ranger" ref="ranger4"></property>
 		<property name="manager" ref="manager4"></property>
-		<property name="classes">
-			<list>
-				<ref bean="survivalClass4"></ref>
-			</list>
-		</property>
-		<property name="stories">
-			<list>
-				<ref bean="story4"></ref>
-			</list>
-		</property>
-		<property name="applicationsFor">
-			<list>
-
-			</list>
-		</property>
-		<property name="auditRecords">
-			<list>
-				<ref bean="auditrecord2"></ref>
-				<ref bean="auditrecord4"></ref>
-			</list>
-		</property>
 		<property name="notes">
 			<list>
 				<ref bean="note4"></ref>
 				<ref bean="note5"></ref>
-			</list>
-		</property>
-		<property name="categories">
-			<list>
-				<ref bean="water"></ref>
-				<ref bean="lake"></ref>
-
-			</list>
-		</property>
-		<property name="sponsorships">
-			<list>
-				<ref bean="sponsorship4"></ref>
 			</list>
 		</property>
 		<property name="stages">
@@ -1330,7 +1194,6 @@
 				<ref bean="stage4"></ref>
 			</list>
 		</property>
-		<property name="legalText" ref="legalText4"></property>
 		<property name="tags">
 			<list>
 				<ref bean="tag4"></ref>
@@ -1359,45 +1222,10 @@
 			<null />
 		</property>
 		<property name="cancelled" value="false"></property>
-
-		<property name="ranger" ref="ranger3"></property>
 		<property name="manager" ref="manager5"></property>
-		<property name="classes">
-			<list>
-				<ref bean="survivalClass5"></ref>
-			</list>
-		</property>
-		<property name="stories">
-			<list>
-				<ref bean="story5"></ref>
-			</list>
-		</property>
-		<property name="applicationsFor">
-			<list>
-				<ref bean="applicationFor4" />
-				<ref bean="applicationFor5"></ref>
-				<ref bean="applicationFor6"></ref>
-			</list>
-		</property>
-		<property name="auditRecords">
-			<list>
-				<ref bean="auditrecord5"></ref>
-			</list>
-		</property>
 		<property name="notes">
 			<list>
 
-			</list>
-		</property>
-		<property name="categories">
-			<list>
-				<ref bean="mountainClimbing"></ref>
-
-			</list>
-		</property>
-		<property name="sponsorships">
-			<list>
-				<ref bean="sponsorship5"></ref>
 			</list>
 		</property>
 		<property name="stages">
@@ -1405,7 +1233,6 @@
 				<ref bean="stage5"></ref>
 			</list>
 		</property>
-		<property name="legalText" ref="legalText1"></property>
 		<property name="tags">
 			<list>
 				<ref bean="tag5"></ref>
@@ -1434,40 +1261,9 @@
 			<null />
 		</property>
 		<property name="cancelled" value="false"></property>
-
-		<property name="ranger" ref="rangerA+"></property>
 		<property name="manager" ref="managerA+"></property>
-		<property name="classes">
-			<list>
-			</list>
-		</property>
-		<property name="stories">
-			<list>
-			</list>
-		</property>
-		<property name="applicationsFor">
-			<list>
-				<ref bean="applicationFor1A+" />
-				<ref bean="applicationFor2A+"></ref>
-				<ref bean="applicationFor3A+"></ref>
-				<ref bean="applicationFor4A+"></ref>
-				<ref bean="applicationFor5A+"></ref>
-			</list>
-		</property>
-		<property name="auditRecords">
-			<list>
-			</list>
-		</property>
+	
 		<property name="notes">
-			<list>
-			</list>
-		</property>
-		<property name="categories">
-			<list>
-				<ref bean="mountainClimbing"></ref>
-			</list>
-		</property>
-		<property name="sponsorships">
 			<list>
 			</list>
 		</property>
@@ -1476,7 +1272,6 @@
 				<ref bean="stageA+"></ref>
 			</list>
 		</property>
-		<property name="legalText" ref="legalTextA+"></property>
 		<property name="tags">
 			<list>
 				<ref bean="tag5"></ref>
