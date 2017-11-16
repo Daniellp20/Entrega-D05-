@@ -1,16 +1,20 @@
 
 package domain;
 
+import java.util.Collection;
 import java.util.Date;
 
 import javax.persistence.Access;
 import javax.persistence.AccessType;
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.NotBlank;
+import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
@@ -73,6 +77,19 @@ public class LegalText extends DomainEntity {
 		this.draftMode = draftMode;
 	}
 
-	// Relationships ----------------------------------------------------------
 
+	// Relationships ----------------------------------------------------------
+	private Collection<Trip>	trips;
+
+
+	@Valid
+	@NotEmpty
+	@OneToMany
+	public Collection<Trip> getTrips() {
+		return this.trips;
+	}
+
+	public void setTrips(Collection<Trip> trips) {
+		this.trips = trips;
+	}
 }

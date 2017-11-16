@@ -133,17 +133,8 @@ public class Trip extends DomainEntity {
 
 
 	// Relationships ----------------------------------------------------------
-	//private Ranger						ranger;
 	private Manager				manager;
-	//private Collection<SurvivalClass>	classes;
-	//private Collection<Story>			stories;
-	//private Collection<ApplicationFor>	applicationsFor;
-	//private Collection<AuditRecord>		auditRecords;
-	private Collection<Note>	notes;
-	//private Collection<Category>		categories;
-	//private Collection<Sponsorship>		sponsorships;
 	private Collection<Stage>	stages;
-	//private LegalText					legalText;
 	private Collection<Tag>		tags;
 
 
@@ -156,17 +147,6 @@ public class Trip extends DomainEntity {
 
 	public void setManager(final Manager manager) {
 		this.manager = manager;
-	}
-
-	@Valid
-	@NotNull
-	@OneToMany(mappedBy = "trip")
-	public Collection<Note> getNotes() {
-		return this.notes;
-	}
-
-	public void setNotes(final Collection<Note> notes) {
-		this.notes = notes;
 	}
 
 	@NotNull

@@ -6,6 +6,7 @@ import java.util.Collection;
 import javax.persistence.Access;
 import javax.persistence.AccessType;
 import javax.persistence.Entity;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.validation.Valid;
@@ -39,6 +40,7 @@ public class Category extends DomainEntity {
 
 	private Collection<Category>	subCategories;
 	private Category				fatherCategory;
+	private Collection<Trip>		trips;
 
 
 	@NotNull
@@ -60,6 +62,16 @@ public class Category extends DomainEntity {
 
 	public void setFatherCategory(final Category fatherCategory) {
 		this.fatherCategory = fatherCategory;
+	}
+
+	@ManyToMany
+	@Valid
+	public Collection<Trip> getTrips() {
+		return this.trips;
+	}
+
+	public void setTrips(Collection<Trip> trips) {
+		this.trips = trips;
 	}
 
 }

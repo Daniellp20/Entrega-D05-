@@ -1074,11 +1074,6 @@
 		<property name="reasonWhy" value="reasonWhy 1"></property>
 		<property name="cancelled" value="true"></property>
 		<property name="manager" ref="manager1"></property>
-		<property name="notes">
-			<list>
-				<ref bean="note1"></ref>
-			</list>
-		</property>
 		<property name="stages">
 			<list>
 				<ref bean="stage1"></ref>
@@ -1111,11 +1106,6 @@
 		</property>
 		<property name="cancelled" value="false"></property>
 		<property name="manager" ref="manager1"></property>
-		<property name="notes">
-			<list>
-				<ref bean="note2"></ref>
-			</list>
-		</property>
 		<property name="stages">
 			<list>
 				<ref bean="stage6"></ref>
@@ -1148,11 +1138,6 @@
 		</property>
 		<property name="cancelled" value="false"></property>
 		<property name="manager" ref="manager2"></property>
-		<property name="notes">
-			<list>
-				<ref bean="note3"></ref>
-			</list>
-		</property>
 		<property name="stages">
 			<list>
 				<ref bean="stage3"></ref>
@@ -1183,12 +1168,6 @@
 		<property name="reasonWhy" value="reasonWhy 4"></property>
 		<property name="cancelled" value="true"></property>
 		<property name="manager" ref="manager4"></property>
-		<property name="notes">
-			<list>
-				<ref bean="note4"></ref>
-				<ref bean="note5"></ref>
-			</list>
-		</property>
 		<property name="stages">
 			<list>
 				<ref bean="stage4"></ref>
@@ -1223,11 +1202,6 @@
 		</property>
 		<property name="cancelled" value="false"></property>
 		<property name="manager" ref="manager5"></property>
-		<property name="notes">
-			<list>
-
-			</list>
-		</property>
 		<property name="stages">
 			<list>
 				<ref bean="stage5"></ref>
@@ -1262,11 +1236,6 @@
 		</property>
 		<property name="cancelled" value="false"></property>
 		<property name="manager" ref="managerA+"></property>
-	
-		<property name="notes">
-			<list>
-			</list>
-		</property>
 		<property name="stages">
 			<list>
 				<ref bean="stageA+"></ref>
@@ -1855,6 +1824,11 @@
 		<property name="lawsNumber" value="1"></property>
 		<property name="moment" value="2017/10/29 23:59"></property>
 		<property name="draftMode" value="false"></property>
+		<property name="trips">
+			<list>
+				<ref bean="trip1"></ref>
+			</list>
+		</property>
 	</bean>
 
 	<bean id="legalText2" class="domain.LegalText">
@@ -1863,6 +1837,11 @@
 		<property name="lawsNumber" value="1"></property>
 		<property name="moment" value="2017/11/02 23:59"></property>
 		<property name="draftMode" value="false"></property>
+		<property name="trips">
+			<list>
+				<ref bean="trip2"></ref>
+			</list>
+		</property>
 	</bean>
 
 
@@ -1872,6 +1851,11 @@
 		<property name="lawsNumber" value="1"></property>
 		<property name="moment" value="2017/11/12 23:59"></property>
 		<property name="draftMode" value="false"></property>
+		<property name="trips">
+			<list>
+				<ref bean="trip3"></ref>
+			</list>
+		</property>
 	</bean>
 
 
@@ -1881,6 +1865,11 @@
 		<property name="lawsNumber" value="4"></property>
 		<property name="moment" value="2017/11/23 23:59"></property>
 		<property name="draftMode" value="false"></property>
+		<property name="trips">
+			<list>
+				<ref bean="trip4"></ref>
+			</list>
+		</property>
 	</bean>
 
 	<bean id="legalText5" class="domain.LegalText">
@@ -1889,6 +1878,11 @@
 		<property name="lawsNumber" value="1"></property>
 		<property name="moment" value="2017/12/23 23:59"></property>
 		<property name="draftMode" value="true"></property>
+		<property name="trips">
+			<list>
+				<ref bean="trip5"></ref>
+			</list>
+		</property>
 	</bean>
 
 		<bean id="legalTextA+" class="domain.LegalText">
@@ -1897,6 +1891,11 @@
 		<property name="lawsNumber" value="1"></property>
 		<property name="moment" value="2017/12/23 23:59"></property>
 		<property name="draftMode" value="false"></property>
+		<property name="trips">
+			<list>
+				<ref bean="trip2"></ref>
+			</list>
+		</property>
 	</bean>
 
 	<!-- SponsorShip -->
@@ -1999,6 +1998,11 @@
 			<list>
 			</list>
 		</property>
+		<property name="trips">
+			<list>
+				<ref bean="trip1"></ref>
+			</list>
+		</property>
 	</bean>
 
 	<!--Categoria Savana -->
@@ -2008,6 +2012,10 @@
 		<ref bean="ground"/>
 		</property>
 		<property name="subCategories">
+			<list>
+			</list>
+		</property>
+		<property name="trips">
 			<list>
 			</list>
 		</property>
@@ -2023,6 +2031,11 @@
 			<list>
 			</list>
 		</property>
+		<property name="trips">
+			<list>
+				<ref bean="trip2"></ref>
+			</list>
+		</property>
 	</bean>
 	
 	<bean id="riverWater" class="domain.Category">
@@ -2032,6 +2045,11 @@
 		</property>
 		<property name="subCategories">
 			<list>
+			</list>
+		</property>
+		<property name="trips">
+			<list>
+				<ref bean="trip3"></ref>
 			</list>
 		</property>
 	</bean>
@@ -2046,6 +2064,10 @@
 			<list>
 			</list>
 		</property>
+		<property name="trips">
+			<list>
+			</list>
+		</property>
 	</bean>
 	<bean id="mountainGround" class="domain.Category">
 		<property name="name" value="Mountain" />
@@ -2054,6 +2076,11 @@
 		</property>
 		<property name="subCategories">
 			<list>
+			</list>
+		</property>
+		<property name="trips">
+			<list>
+				<ref bean="trip5"></ref>
 			</list>
 		</property>
 	</bean>
@@ -2070,6 +2097,10 @@
 				<ref bean="riverWater" />
 			</list>
 		</property>
+		<property name="trips">
+			<list>
+			</list>
+		</property>
 	</bean>
 
 	<!--Categoria Hija de Safari -> Ground -->
@@ -2082,6 +2113,11 @@
 			<list>
 				<ref bean="savana" />
 				<ref bean="mountainGround" />
+			</list>
+		</property>
+		<property name="trips">
+			<list>
+				<ref bean="trip1"></ref>
 			</list>
 		</property>
 	</bean>
@@ -2100,6 +2136,10 @@
 				<ref bean="riverClimbing" />
 			</list>
 		</property>
+		<property name="trips">
+			<list>
+			</list>
+		</property>
 	</bean>
 
 	<!--Categoria Safari -->
@@ -2114,6 +2154,12 @@
 				<ref bean="water" />
 			</list>
 		</property>
+		<property name="trips">
+			<list>
+				<ref bean="trip3"></ref>
+				<ref bean="trip1"></ref>
+			</list>
+		</property>
 	</bean>
 
 	<!--Categoria Padre De Todas -->
@@ -2123,6 +2169,10 @@
 			<list>
 				<ref bean="safari" />
 				<ref bean="climbing" />
+			</list>
+		</property>
+		<property name="trips">
+			<list>
 			</list>
 		</property>
 	</bean>
