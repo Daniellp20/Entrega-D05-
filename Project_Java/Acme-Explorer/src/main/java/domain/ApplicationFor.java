@@ -16,6 +16,8 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 import javax.validation.constraints.Pattern;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 @Entity
 @Access(AccessType.PROPERTY)
 public class ApplicationFor extends DomainEntity {
@@ -31,6 +33,7 @@ public class ApplicationFor extends DomainEntity {
 	@NotNull
 	@Past
 	@Temporal(TemporalType.TIMESTAMP)
+	@DateTimeFormat(pattern = "yyyyy/MM/dd HH:mm")
 	public Date getMoment() {
 		return this.moment;
 	}
