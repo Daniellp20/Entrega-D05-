@@ -1885,7 +1885,7 @@
 		</property>
 	</bean>
 
-		<bean id="legalTextA+" class="domain.LegalText">
+		<!-- <bean id="legalTextA+" class="domain.LegalText">
 		<property name="title" value="titlA+" />
 		<property name="body" value="bodyA+" />
 		<property name="lawsNumber" value="1"></property>
@@ -1893,10 +1893,10 @@
 		<property name="draftMode" value="false"></property>
 		<property name="trips">
 			<list>
-				<ref bean="trip2"></ref>
+				<ref bean="tripA+"></ref>
 			</list>
 		</property>
-	</bean>
+	</bean> -->
 
 	<!-- SponsorShip -->
 
