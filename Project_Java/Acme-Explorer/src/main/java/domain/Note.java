@@ -68,6 +68,7 @@ public class Note extends DomainEntity {
 
 	@Past
 	@Temporal(TemporalType.TIMESTAMP)
+	@DateTimeFormat(pattern = "yyyyy/MM/dd HH:mm")
 	public Date getReplyMoment() {
 		return this.replyMoment;
 	}
