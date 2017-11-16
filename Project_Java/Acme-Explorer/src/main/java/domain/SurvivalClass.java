@@ -15,6 +15,7 @@ import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.NotBlank;
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 @Access(AccessType.PROPERTY)
@@ -47,6 +48,7 @@ public class SurvivalClass extends DomainEntity {
 
 	@NotNull
 	@Temporal(TemporalType.TIMESTAMP)
+	@DateTimeFormat(pattern = "yyyyy/MM/dd HH:mm")
 	public Date getOrganisedMoment() {
 		return this.organisedMoment;
 	}
