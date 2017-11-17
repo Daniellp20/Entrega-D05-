@@ -137,9 +137,12 @@ public class Trip extends DomainEntity {
 
 
 	// Relationships ----------------------------------------------------------
-	private Manager				manager;
-	private Collection<Stage>	stages;
-	private Collection<Tag>		tags;
+	private Manager						manager;
+	private Collection<Stage>			stages;
+	private Collection<Tag>				tags;
+	private Collection<ApplicationFor>	applicationsFor;
+	private Collection<Note>			notes;
+	private Collection<AuditRecord>		auditRecords;
 
 
 	@NotNull
@@ -173,6 +176,39 @@ public class Trip extends DomainEntity {
 
 	public void setTags(final Collection<Tag> tags) {
 		this.tags = tags;
+	}
+
+	@NotNull
+	@Valid
+	@OneToMany
+	public Collection<ApplicationFor> getApplicationsFor() {
+		return this.applicationsFor;
+	}
+
+	public void setApplicationsFor(Collection<ApplicationFor> applicationsFor) {
+		this.applicationsFor = applicationsFor;
+	}
+
+	@NotNull
+	@Valid
+	@OneToMany
+	public Collection<Note> getNotes() {
+		return this.notes;
+	}
+
+	public void setNotes(Collection<Note> notes) {
+		this.notes = notes;
+	}
+
+	@NotNull
+	@Valid
+	@OneToMany
+	public Collection<AuditRecord> getAuditRecords() {
+		return this.auditRecords;
+	}
+
+	public void setAuditRecords(Collection<AuditRecord> auditRecords) {
+		this.auditRecords = auditRecords;
 	}
 
 }

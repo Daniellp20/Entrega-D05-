@@ -429,7 +429,7 @@
 			</list>
 		</property>
 	</bean>
-	
+
 	<bean id="userAccountExplorerA+" class="security.UserAccount">
 		<property name="username" value="explorerA+" />
 		<property name="password" value="09e592c4a21a21b39f22aa7d7170f162" />
@@ -453,8 +453,8 @@
 			</list>
 		</property>
 	</bean>
-	
-		<bean id="userAccountManagerA+" class="security.UserAccount">
+
+	<bean id="userAccountManagerA+" class="security.UserAccount">
 		<property name="username" value="managerA+" />
 		<property name="password" value="ad92694923612da0600d7be498cc2e08" />
 		<property name="authorities">
@@ -505,7 +505,7 @@
 		<property name="modifiable" value="true" />
 		<property name="messages">
 			<list>
-			<ref bean="message2" />
+				<ref bean="message2" />
 			</list>
 		</property>
 	</bean>
@@ -1085,6 +1085,22 @@
 				<ref bean="tag1"></ref>
 			</list>
 		</property>
+		<property name="applicationsFor">
+			<list>
+				<ref bean="applicationFor1"></ref>
+				<ref bean="applicationFor2"></ref>
+			</list>
+		</property>
+		<property name="notes">
+			<list>
+				<ref bean="note1"></ref>
+			</list>
+		</property>
+		<property name="auditRecords">
+			<list>
+				<ref bean="auditrecord1"></ref>
+			</list>
+		</property>
 	</bean>
 
 	<bean id="trip2" class="domain.Trip">
@@ -1115,6 +1131,21 @@
 			<list>
 				<ref bean="tag2"></ref>
 				<ref bean="tag1"></ref>
+			</list>
+		</property>
+		<property name="applicationsFor">
+			<list>
+				<ref bean="applicationFor3"></ref>
+			</list>
+		</property>
+		<property name="notes">
+			<list>
+				<ref bean="note2"></ref>
+			</list>
+		</property>
+		<property name="auditRecords">
+			<list>
+				<ref bean="auditrecord2"></ref>
 			</list>
 		</property>
 	</bean>
@@ -1149,6 +1180,23 @@
 				<ref bean="tag1"></ref>
 			</list>
 		</property>
+		<property name="applicationsFor">
+			<list>
+				<ref bean="applicationFor4"></ref>
+				<ref bean="applicationFor5"></ref>
+				<ref bean="applicationFor6"></ref>
+			</list>
+		</property>
+		<property name="notes">
+			<list>
+			</list>
+		</property>
+		<property name="auditRecords">
+			<list>
+				<ref bean="auditrecord3"></ref>
+				<ref bean="auditrecord4"></ref>
+			</list>
+		</property>
 	</bean>
 
 	<bean id="trip4" class="domain.Trip">
@@ -1177,6 +1225,22 @@
 			<list>
 				<ref bean="tag4"></ref>
 				<ref bean="tag2"></ref>
+			</list>
+		</property>
+		<property name="applicationsFor">
+			<list>
+			</list>
+		</property>
+		<property name="notes">
+			<list>
+				<ref bean="note3"></ref>
+				<ref bean="note4"></ref>
+				<ref bean="note5"></ref>
+			</list>
+		</property>
+		<property name="auditRecords">
+			<list>
+				<ref bean="auditrecord5"></ref>
 			</list>
 		</property>
 	</bean>
@@ -1213,8 +1277,22 @@
 				<ref bean="tag1"></ref>
 			</list>
 		</property>
+		<property name="applicationsFor">
+			<list>
+			</list>
+		</property>
+		<property name="notes">
+			<list>
+			</list>
+		</property>
+		<property name="auditRecords">
+			<list>
+
+			</list>
+		</property>
+
 	</bean>
-	
+
 	<bean id="tripA+" class="domain.Trip">
 		<property name="ticker" value="160212-DDDD"></property>
 		<property name="title" value="titleA+"></property>
@@ -1245,6 +1323,19 @@
 			<list>
 				<ref bean="tag5"></ref>
 				<ref bean="tag1"></ref>
+			</list>
+		</property>
+		<property name="applicationsFor">
+			<list>
+			</list>
+		</property>
+		<property name="notes">
+			<list>
+			</list>
+		</property>
+		<property name="auditRecords">
+			<list>
+
 			</list>
 		</property>
 	</bean>
@@ -1356,7 +1447,7 @@
 		<property name="expirationYear" value="18" />
 		<property name="cvv" value="724" />
 	</bean>
-	
+
 	<bean id="creditCard1A+" class="domain.CreditCard">
 		<property name="holderName" value="creditCard1A+" />
 		<property name="brandName" value="La caixa" />
@@ -1365,8 +1456,8 @@
 		<property name="expirationYear" value="18" />
 		<property name="cvv" value="724" />
 	</bean>
-	
-		<bean id="creditCard2A+" class="domain.CreditCard">
+
+	<bean id="creditCard2A+" class="domain.CreditCard">
 		<property name="holderName" value="creditCard2A+" />
 		<property name="brandName" value="La caixa" />
 		<property name="number" value="4388576018410707" />
@@ -1374,8 +1465,8 @@
 		<property name="expirationYear" value="18" />
 		<property name="cvv" value="724" />
 	</bean>
-	
-		<bean id="creditCard3A+" class="domain.CreditCard">
+
+	<bean id="creditCard3A+" class="domain.CreditCard">
 		<property name="holderName" value="creditCard3A+" />
 		<property name="brandName" value="La caixa" />
 		<property name="number" value="4388576018410707" />
@@ -1383,8 +1474,8 @@
 		<property name="expirationYear" value="18" />
 		<property name="cvv" value="724" />
 	</bean>
-	
-		<bean id="creditCard4A+" class="domain.CreditCard">
+
+	<bean id="creditCard4A+" class="domain.CreditCard">
 		<property name="holderName" value="creditCard4A+" />
 		<property name="brandName" value="La caixa" />
 		<property name="number" value="4388576018410707" />
@@ -1392,8 +1483,8 @@
 		<property name="expirationYear" value="18" />
 		<property name="cvv" value="724" />
 	</bean>
-	
-		<bean id="creditCard5A+" class="domain.CreditCard">
+
+	<bean id="creditCard5A+" class="domain.CreditCard">
 		<property name="holderName" value="creditCard5A+" />
 		<property name="brandName" value="La caixa" />
 		<property name="number" value="4388576018410707" />
@@ -1513,7 +1604,7 @@
 			</list>
 		</property>
 	</bean>
-	
+
 	<bean id="rangerA+" class="domain.Ranger">
 		<property name="suspicious" value="false"></property>
 		<property name="userAccount" ref="userAccountRangerA+" />
@@ -1674,7 +1765,6 @@
 		<property name="createdMoment" value="2017/10/01 15:25" />
 		<property name="remark" value="3" />
 		<property name="auditor" ref="auditor1" />
-		<property name="trip" ref="trip1" />
 		<property name="body" value="Description note 1" />
 
 	</bean>
@@ -1683,7 +1773,6 @@
 		<property name="createdMoment" value="2017/10/01 15:25" />
 		<property name="remark" value="3" />
 		<property name="auditor" ref="auditor1" />
-		<property name="trip" ref="trip2" />
 		<property name="body" value="Description note 2" />
 
 	</bean>
@@ -1692,7 +1781,6 @@
 		<property name="createdMoment" value="2017/10/01 15:25" />
 		<property name="remark" value="3" />
 		<property name="auditor" ref="auditor2" />
-		<property name="trip" ref="trip3" />
 		<property name="body" value="Description note 3" />
 	</bean>
 
@@ -1700,7 +1788,6 @@
 		<property name="createdMoment" value="2017/10/01 15:25" />
 		<property name="remark" value="3" />
 		<property name="auditor" ref="auditor2" />
-		<property name="trip" ref="trip4" />
 		<property name="body" value="Description note 4" />
 	</bean>
 
@@ -1708,7 +1795,6 @@
 		<property name="createdMoment" value="2017/10/01 15:25" />
 		<property name="remark" value="2" />
 		<property name="auditor" ref="auditor3" />
-		<property name="trip" ref="trip4" />
 		<property name="body" value="Description note 5" />
 	</bean>
 
@@ -1725,7 +1811,6 @@
 		</property>
 		<property name="draftMode" value="true" />
 		<property name="auditor" ref="auditor1" />
-		<property name="trip" ref="trip1" />
 	</bean>
 
 	<bean id="auditrecord2" class="domain.AuditRecord">
@@ -1739,7 +1824,6 @@
 		</property>
 		<property name="draftMode" value="false" />
 		<property name="auditor" ref="auditor1" />
-		<property name="trip" ref="trip4" />
 	</bean>
 	<bean id="auditrecord3" class="domain.AuditRecord">
 		<property name="realisedMoment" value="2017/10/01 15:25" />
@@ -1752,7 +1836,6 @@
 		</property>
 		<property name="draftMode" value="true" />
 		<property name="auditor" ref="auditor1" />
-		<property name="trip" ref="trip3" />
 	</bean>
 	<bean id="auditrecord4" class="domain.AuditRecord">
 		<property name="realisedMoment" value="2017/10/01 15:25" />
@@ -1765,7 +1848,6 @@
 		</property>
 		<property name="draftMode" value="true" />
 		<property name="auditor" ref="auditor2" />
-		<property name="trip" ref="trip4" />
 	</bean>
 	<bean id="auditrecord5" class="domain.AuditRecord">
 		<property name="realisedMoment" value="2017/10/01 15:25" />
@@ -1778,7 +1860,6 @@
 		</property>
 		<property name="draftMode" value="true" />
 		<property name="auditor" ref="auditor3" />
-		<property name="trip" ref="trip5" />
 	</bean>
 
 
@@ -1827,6 +1908,7 @@
 		<property name="trips">
 			<list>
 				<ref bean="trip1"></ref>
+				<ref bean="trip5"></ref>
 			</list>
 		</property>
 	</bean>
@@ -1872,31 +1954,17 @@
 		</property>
 	</bean>
 
-	<bean id="legalText5" class="domain.LegalText">
-		<property name="title" value="title 5" />
-		<property name="body" value="body 5" />
-		<property name="lawsNumber" value="1"></property>
-		<property name="moment" value="2017/12/23 23:59"></property>
-		<property name="draftMode" value="true"></property>
-		<property name="trips">
-			<list>
-				<ref bean="trip5"></ref>
-			</list>
-		</property>
-	</bean>
+	<!-- <bean id="legalText5" class="domain.LegalText"> <property name="title" 
+		value="title 5" /> <property name="body" value="body 5" /> <property name="lawsNumber" 
+		value="1"></property> <property name="moment" value="2017/12/23 23:59"></property> 
+		<property name="draftMode" value="true"></property> <property name="trips"> 
+		<list> <ref bean="trip5"></ref> </list> </property> </bean> -->
 
-		<!-- <bean id="legalTextA+" class="domain.LegalText">
-		<property name="title" value="titlA+" />
-		<property name="body" value="bodyA+" />
-		<property name="lawsNumber" value="1"></property>
-		<property name="moment" value="2017/12/23 23:59"></property>
-		<property name="draftMode" value="false"></property>
-		<property name="trips">
-			<list>
-				<ref bean="tripA+"></ref>
-			</list>
-		</property>
-	</bean> -->
+	<!-- <bean id="legalTextA+" class="domain.LegalText"> <property name="title" 
+		value="titlA+" /> <property name="body" value="bodyA+" /> <property name="lawsNumber" 
+		value="1"></property> <property name="moment" value="2017/12/23 23:59"></property> 
+		<property name="draftMode" value="false"></property> <property name="trips"> 
+		<list> <ref bean="tripA+"></ref> </list> </property> </bean> -->
 
 	<!-- SponsorShip -->
 
@@ -1992,7 +2060,7 @@
 	<bean id="lake" class="domain.Category">
 		<property name="name" value="Lake" />
 		<property name="fatherCategory">
-		<ref bean="water"/>
+			<ref bean="water" />
 		</property>
 		<property name="subCategories">
 			<list>
@@ -2009,7 +2077,7 @@
 	<bean id="savana" class="domain.Category">
 		<property name="name" value="Savana" />
 		<property name="fatherCategory">
-		<ref bean="ground"/>
+			<ref bean="ground" />
 		</property>
 		<property name="subCategories">
 			<list>
@@ -2025,7 +2093,7 @@
 	<bean id="riverClimbing" class="domain.Category">
 		<property name="name" value="River" />
 		<property name="fatherCategory">
-		<ref bean="climbing"/>
+			<ref bean="climbing" />
 		</property>
 		<property name="subCategories">
 			<list>
@@ -2037,11 +2105,11 @@
 			</list>
 		</property>
 	</bean>
-	
+
 	<bean id="riverWater" class="domain.Category">
 		<property name="name" value="River" />
 		<property name="fatherCategory">
-		<ref bean="water"/>
+			<ref bean="water" />
 		</property>
 		<property name="subCategories">
 			<list>
@@ -2058,7 +2126,7 @@
 	<bean id="mountainClimbing" class="domain.Category">
 		<property name="name" value="Mountain" />
 		<property name="fatherCategory">
-		<ref bean="climbing"/>
+			<ref bean="climbing" />
 		</property>
 		<property name="subCategories">
 			<list>
@@ -2072,7 +2140,7 @@
 	<bean id="mountainGround" class="domain.Category">
 		<property name="name" value="Mountain" />
 		<property name="fatherCategory">
-		<ref bean="ground"/>
+			<ref bean="ground" />
 		</property>
 		<property name="subCategories">
 			<list>
@@ -2089,7 +2157,7 @@
 	<bean id="water" class="domain.Category">
 		<property name="name" value="Water" />
 		<property name="fatherCategory">
-		<ref bean="safari"/>
+			<ref bean="safari" />
 		</property>
 		<property name="subCategories">
 			<list>
@@ -2107,7 +2175,7 @@
 	<bean id="ground" class="domain.Category">
 		<property name="name" value="Ground" />
 		<property name="fatherCategory">
-		<ref bean="safari"/>
+			<ref bean="safari" />
 		</property>
 		<property name="subCategories">
 			<list>
@@ -2128,7 +2196,7 @@
 	<bean id="climbing" class="domain.Category">
 		<property name="name" value="Climbing" />
 		<property name="fatherCategory">
-		<ref bean="category"/>
+			<ref bean="category" />
 		</property>
 		<property name="subCategories">
 			<list>
@@ -2146,7 +2214,7 @@
 	<bean id="safari" class="domain.Category">
 		<property name="name" value="Safari" />
 		<property name="fatherCategory">
-		<ref bean="category"/>
+			<ref bean="category" />
 		</property>
 		<property name="subCategories">
 			<list>
@@ -2313,7 +2381,7 @@
 			</list>
 		</property>
 	</bean>
-	
+
 	<bean id="managerA+" class="domain.Manager">
 		<property name="suspicious" value="True"></property>
 		<property name="name" value="ManagerA+" />
@@ -2543,7 +2611,7 @@
 			</list>
 		</property>
 	</bean>
-	
+
 	<bean id="explorerA+" class="domain.Explorer">
 		<property name="name" value="Explorer A+" />
 		<property name="surname" value="surname Explorer A+" />
@@ -2722,7 +2790,6 @@
 			</list>
 		</property>
 		<property name="creditCard" ref="creditCard1" />
-		<property name="trip" ref="trip1" />
 		<property name="explorer" ref="explorer1" />
 		<property name="manager" ref="manager1" />
 	</bean>
@@ -2738,7 +2805,6 @@
 			</list>
 		</property>
 		<property name="creditCard" ref="creditCard2" />
-		<property name="trip" ref="trip2" />
 		<property name="explorer" ref="explorer2" />
 		<property name="manager" ref="manager2" />
 	</bean>
@@ -2755,7 +2821,6 @@
 			</list>
 		</property>
 		<property name="creditCard" ref="creditCard3" />
-		<property name="trip" ref="trip3" />
 		<property name="explorer" ref="explorer3" />
 		<property name="manager" ref="manager3" />
 	</bean>
@@ -2772,7 +2837,6 @@
 			</list>
 		</property>
 		<property name="creditCard" ref="creditCard4" />
-		<property name="trip" ref="trip5" />
 		<property name="explorer" ref="explorer3" />
 		<property name="manager" ref="manager4" />
 	</bean>
@@ -2789,7 +2853,6 @@
 			</list>
 		</property>
 		<property name="creditCard" ref="creditCard5" />
-		<property name="trip" ref="trip5" />
 		<property name="explorer" ref="explorer5" />
 		<property name="manager" ref="manager5" />
 	</bean>
@@ -2806,7 +2869,6 @@
 			</list>
 		</property>
 		<property name="creditCard" ref="creditCard6" />
-		<property name="trip" ref="trip5" />
 		<property name="explorer" ref="explorer6" />
 		<property name="manager">
 			<null />
@@ -2822,11 +2884,10 @@
 			</list>
 		</property>
 		<property name="creditCard" ref="creditCard5" />
-		<property name="trip" ref="trip1" />
 		<property name="explorer" ref="explorer5" />
 		<property name="manager" ref="manager1" />
 	</bean>
-	
+
 	<bean id="applicationFor1A+" class="domain.ApplicationFor">
 		<property name="moment" value="2017/10/27 03:10" />
 		<property name="status" value="ACCEPTED" />
@@ -2836,11 +2897,10 @@
 			</list>
 		</property>
 		<property name="creditCard" ref="creditCard1A+" />
-		<property name="trip" ref="tripA+" />
 		<property name="explorer" ref="explorerA+" />
 		<property name="manager" ref="managerA+" />
 	</bean>
-	
+
 	<bean id="applicationFor2A+" class="domain.ApplicationFor">
 		<property name="moment" value="2017/10/27 03:10" />
 		<property name="status" value="ACCEPTED" />
@@ -2850,11 +2910,10 @@
 			</list>
 		</property>
 		<property name="creditCard" ref="creditCard2A+" />
-		<property name="trip" ref="tripA+" />
 		<property name="explorer" ref="explorer6" />
 		<property name="manager" ref="managerA+" />
 	</bean>
-	
+
 	<bean id="applicationFor3A+" class="domain.ApplicationFor">
 		<property name="moment" value="2017/10/27 03:10" />
 		<property name="status" value="ACCEPTED" />
@@ -2864,11 +2923,10 @@
 			</list>
 		</property>
 		<property name="creditCard" ref="creditCard3A+" />
-		<property name="trip" ref="tripA+" />
 		<property name="explorer" ref="explorer5" />
 		<property name="manager" ref="managerA+" />
 	</bean>
-	
+
 	<bean id="applicationFor4A+" class="domain.ApplicationFor">
 		<property name="moment" value="2017/10/27 03:10" />
 		<property name="status" value="ACCEPTED" />
@@ -2878,11 +2936,10 @@
 			</list>
 		</property>
 		<property name="creditCard" ref="creditCard4A+" />
-		<property name="trip" ref="tripA+" />
 		<property name="explorer" ref="explorer4" />
 		<property name="manager" ref="managerA+" />
 	</bean>
-	
+
 	<bean id="applicationFor5A+" class="domain.ApplicationFor">
 		<property name="moment" value="2017/10/27 03:10" />
 		<property name="status" value="ACCEPTED" />
@@ -2892,7 +2949,6 @@
 			</list>
 		</property>
 		<property name="creditCard" ref="creditCard5A+" />
-		<property name="trip" ref="tripA+" />
 		<property name="explorer" ref="explorer3" />
 		<property name="manager" ref="managerA+" />
 	</bean>
@@ -2929,7 +2985,7 @@
 
 	<bean id="curricula2" class="domain.Curricula">
 		<property name="ticker" value="171023-ABCE" />
-			<property name="ranger" ref="ranger2"></property>
+		<property name="ranger" ref="ranger2"></property>
 		<property name="personalRecord" ref="personalRecord2" />
 
 		<property name="educationRecords">
@@ -2956,7 +3012,7 @@
 
 	<bean id="curricula3" class="domain.Curricula">
 		<property name="ticker" value="171023-ABCF" />
-			<property name="ranger" ref="ranger3"></property>
+		<property name="ranger" ref="ranger3"></property>
 		<property name="personalRecord" ref="personalRecord3" />
 
 		<property name="educationRecords">
@@ -2983,7 +3039,7 @@
 
 	<bean id="curricula4" class="domain.Curricula">
 		<property name="ticker" value="171023-ABCG" />
-			<property name="ranger" ref="ranger4"></property>
+		<property name="ranger" ref="ranger4"></property>
 		<property name="personalRecord" ref="personalRecord4" />
 
 		<property name="educationRecords">

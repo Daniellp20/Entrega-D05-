@@ -80,20 +80,8 @@ public class Note extends DomainEntity {
 
 	//---------------------------Relationships--------------------------------------------------
 
-	private Trip	trip;
 	private Auditor	auditor;
 
-
-	@Valid
-	@NotNull
-	@ManyToOne(optional = false)
-	public Trip getTrip() {
-		return this.trip;
-	}
-
-	public void setTrip(final Trip trip) {
-		this.trip = trip;
-	}
 
 	@Valid
 	@NotNull

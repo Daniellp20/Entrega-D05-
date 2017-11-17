@@ -85,7 +85,6 @@ public class AuditRecord extends DomainEntity {
 	// Relationships ----------------------------------------------------------
 
 	private Auditor	auditor;
-	private Trip	trip;
 
 
 	@NotNull
@@ -97,17 +96,6 @@ public class AuditRecord extends DomainEntity {
 
 	public void setAuditor(final Auditor auditor) {
 		this.auditor = auditor;
-	}
-
-	@NotNull
-	@Valid
-	@ManyToOne(optional = false)
-	public Trip getTrip() {
-		return this.trip;
-	}
-
-	public void setTrip(final Trip trip) {
-		this.trip = trip;
 	}
 
 }
