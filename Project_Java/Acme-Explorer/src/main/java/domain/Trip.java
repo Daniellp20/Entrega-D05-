@@ -156,7 +156,6 @@ public class Trip extends DomainEntity {
 		this.manager = manager;
 	}
 
-	@NotNull
 	@OneToMany(cascade = CascadeType.ALL)
 	@Valid
 	public Collection<Stage> getStages() {
@@ -167,7 +166,6 @@ public class Trip extends DomainEntity {
 		this.stages = stages;
 	}
 
-	@NotNull
 	@ManyToMany
 	@Valid
 	public Collection<Tag> getTags() {
@@ -178,7 +176,6 @@ public class Trip extends DomainEntity {
 		this.tags = tags;
 	}
 
-	@NotNull
 	@Valid
 	@OneToMany
 	public Collection<ApplicationFor> getApplicationsFor() {
@@ -189,7 +186,6 @@ public class Trip extends DomainEntity {
 		this.applicationsFor = applicationsFor;
 	}
 
-	@NotNull
 	@Valid
 	@OneToMany
 	public Collection<Note> getNotes() {
@@ -200,7 +196,6 @@ public class Trip extends DomainEntity {
 		this.notes = notes;
 	}
 
-	@NotNull
 	@Valid
 	@OneToMany
 	public Collection<AuditRecord> getAuditRecords() {

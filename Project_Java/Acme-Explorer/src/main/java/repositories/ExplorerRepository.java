@@ -17,7 +17,7 @@ public interface ExplorerRepository extends JpaRepository<Explorer, Integer> {
 	Explorer findByUserAccountId(int userAccountId);
 
 	//Lista de explorer que han solicitado ese trip.
-	@Query("select e from Explorer e join e.applicationsFor a where a.trip.id=?1")
+	@Query("select e.explorer from Trip t join t.applicationsFor e where t.id = ?1")
 	Collection<Explorer> findExplorersByTripId(int tripId);
 
 	@Query("select e from Explorer e join e.contactsEmergency c where c.id=?1")
