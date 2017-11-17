@@ -1908,7 +1908,7 @@
 		<property name="trips">
 			<list>
 				<ref bean="trip1"></ref>
-				<ref bean="trip5"></ref>
+				
 			</list>
 		</property>
 	</bean>
