@@ -1099,7 +1099,7 @@
 			</list>
 		</property>
 		<property name="publicationDate" value="2019/02/02 22:45"></property>
-		<property name="startDate" value="2019/07/11"></property>
+		<property name="startDate" value="2017/11/16"></property>
 		<property name="finishDate" value="2019/08/04"></property>
 		<property name="reasonWhy">
 			<null />
@@ -1195,7 +1195,7 @@
 		<property name="publicationDate">
 			<null />
 		</property>
-		<property name="startDate" value="2014/02/21"></property>
+		<property name="startDate" value="2019/02/21"></property>
 		<property name="finishDate" value="2015/08/04"></property>
 		<property name="reasonWhy">
 			<null />

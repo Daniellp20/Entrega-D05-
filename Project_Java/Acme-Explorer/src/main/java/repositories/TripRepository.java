@@ -15,7 +15,7 @@ public interface TripRepository extends JpaRepository<Trip, Integer> {
 	//Devolvemos todos los viajes PARA CUALQUIERA que NO esté autenticado y
 	//que no estén cancelados y además tenga fecha de publicación.
 	//Requisito 10.2
-	@Query("select t from Trip t where t.publicationDate!=null and t.cancelled=false")
+	@Query("select t from Trip t where t.publicationDate!=null and t.cancelled=false and t.startDate >CURRENT_TIMESTAMP")
 	Collection<Trip> findAllTripsNoAuthenticate();
 
 	//Requisito 12.1
@@ -27,21 +27,21 @@ public interface TripRepository extends JpaRepository<Trip, Integer> {
 	Collection<Trip> findAllTripsPublishedNotStarted();
 
 	//Requisito 13.4
-	@Query("select t from Trip t join t.applicationsFor a where a.status='ACCEPTED' and t.startDate>CURRENT_TIMESTAMP")
+	@Query("select a.trip from ApplicationFor a where a.trip.startDate > now() and a.status='ACCEPTED'")
 	Collection<Trip> findTripsWhitStatusAcceptedNotStarted();
 
-	//Requisito de información C/5.
-	@Query("select t from Trip t join t.applicationsFor a where a.explorer.id=?1")
+	//Requisito de información C/6.
+	@Query("select a.trip from ApplicationFor a where a.explorer.id=?1")
 	Collection<Trip> findAllTripsApplyByExplorerId(int explorerId);
 
 	//Requisito de Información B/10.
-	@Query("select t from Trip t join t.auditRecords a where a.auditor.id=?1")
+	@Query("select a.trip from AuditRecord a where a.auditor=?1")
 	Collection<Trip> findByAuditorId(int auditorId);
 
-	//Suma todos los precios con iva de las stages de la trip pasada como parametro.
+	//Suma todos los precios con iva de las stages de la trip pasada como parámetro.
 	@Query("select sum(c.totalPrice) from Trip r join r.stages c where r.id=?1")
 	Double findPrice(int tripId);
 
-	@Query("select t from Trip t join t.categories c where c.id=?1")
+	@Query("select c.trips from Category c where c.id=?1")
 	Collection<Trip> findAllTripsByCategoryId(int categoryId);
 }
