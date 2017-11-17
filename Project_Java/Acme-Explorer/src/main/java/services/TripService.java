@@ -13,6 +13,7 @@ import org.springframework.util.Assert;
 import repositories.TripRepository;
 import domain.ApplicationFor;
 import domain.AuditRecord;
+import domain.Explorer;
 import domain.Manager;
 import domain.Note;
 import domain.Stage;
@@ -113,162 +114,161 @@ public class TripService {
 	//	// Other business methods -------------------------------------------------
 	//	//***** TEST HECHO *******
 	//	//Para quien no esté autenticado devolvemos todos los trips con restricciones
-	//	public Collection<Trip> findAllTripsNoAuthenticate() {
-	//		Collection<Trip> res;
-	//		res = new ArrayList<Trip>(this.tripRepository.findAllTripsNoAuthenticate());
-	//		Assert.notNull(res);
-	//		return res;
-	//	}
-	//
+	public Collection<Trip> findAllTripsNoAuthenticate() {
+		Collection<Trip> res;
+		res = new ArrayList<Trip>(this.tripRepository.findAllTripsNoAuthenticate());
+		Assert.notNull(res);
+		return res;
+	}
+
 	//	//***** TEST HECHO *******
 	//	//Requisito 12.3
-	//	public Collection<Trip> findAllTripsPublishedNotStarted() {
-	//		Collection<Trip> trips;
-	//		trips = new ArrayList<Trip>(this.tripRepository.findAllTripsPublishedNotStarted());
-	//		Assert.notNull(trips);
-	//		return trips;
-	//	}
-	//
+	public Collection<Trip> findAllTripsPublishedNotStarted() {
+		Collection<Trip> trips;
+		trips = new ArrayList<Trip>(this.tripRepository.findAllTripsPublishedNotStarted());
+		Assert.notNull(trips);
+		return trips;
+	}
+
 	//	//***** TEST HECHO *******
 	//	//Para sacar los trips con estado ACCEPTED para que un explorer pueda cancelarlo
-	//	public Collection<Trip> findTripsWhitStatusAcceptedNotStarted() {
-	//		Collection<Trip> trips;
-	//		trips = new ArrayList<Trip>(this.tripRepository.findTripsWhitStatusAcceptedNotStarted());
-	//		Assert.notNull(trips);
-	//		return trips;
-	//	}
-	//
+	public Collection<Trip> findTripsWhitStatusAcceptedNotStarted() {
+		Collection<Trip> trips;
+		trips = new ArrayList<Trip>(this.tripRepository.findTripsWhitStatusAcceptedNotStarted());
+		Assert.notNull(trips);
+		return trips;
+	}
+
 	//	//**********************************************************************************
 	//	//***********************  METODO EDITAR  ******************************************
 	//	//**********************************************************************************
-	//	public Trip findOneToEdit(final int tripId) {
-	//		Trip trip;
-	//		Trip tripEdit;
-	//		Manager manager;
-	//		//Trip a editar
-	//		trip = this.tripRepository.findOne(tripId);
-	//		//Para que un manager edite un trip NO puede tener publicationDate
-	//		//salta si tiene fecha
-	//		Assert.isNull(trip.getPublicationDate());
-	//		//Comprobamos que sea de ese Manager
-	//		manager = this.managerService.findByPrincipal();
-	//		Assert.isTrue(manager.getTrips().contains(trip));
-	//		//Lo editamos
-	//		tripEdit = this.tripRepository.save(trip);
-	//		return tripEdit;
-	//	}
-	//
+	public Trip findOneToEdit(final int tripId) {
+		Trip trip;
+		Trip tripEdit;
+		Manager manager;
+		//Trip a editar
+		trip = this.tripRepository.findOne(tripId);
+		//Para que un manager edite un trip NO puede tener publicationDate
+		//salta si tiene fecha
+		Assert.isNull(trip.getPublicationDate());
+		//Comprobamos que sea de ese Manager
+		manager = this.managerService.findByPrincipal();
+		Assert.isTrue(manager.getTrips().contains(trip));
+		//Lo editamos
+		tripEdit = this.tripRepository.save(trip);
+		return tripEdit;
+	}
+
 	//	//**********************************************************************************
 	//	//***********************  METODO CANCELAR  ****************************************
 	//	//**********************************************************************************
-	//	public Trip findOneToCancelManager(final int tripId) {
-	//		this.managerService.checkPrincipal();
-	//		Collection<Trip> allTrips;
-	//		Trip trip;
-	//		Trip tripEdit;
-	//		Manager manager;
-	//		//Trip a editar
-	//		trip = this.tripRepository.findOne(tripId);
-	//		//Para que un manager cancele un trip NO puede haber empezado
-	//		allTrips = new ArrayList<>(this.tripRepository.findAllTripsPublishedNotStarted());
-	//		Assert.isTrue(allTrips.contains(trip));
-	//		//Comprobamos que sea de ese Manager
-	//		manager = this.managerService.findByPrincipal();
-	//		Assert.isTrue(manager.getTrips().contains(trip));
-	//		tripEdit = this.tripRepository.save(trip);
-	//		if (trip.isCancelled())
-	//			Assert.notNull(trip.getReasonWhy());
-	//		return tripEdit;
-	//	}
-	//
-	//	public Trip findOneToCancelExplorer(final int tripId) {
-	//		this.explorerService.checkPrincipal();
-	//		Trip trip;
-	//		Trip tripEdit;
-	//		Explorer explorer;
-	//		Collection<Trip> tripsAccepted;
-	//		Collection<Explorer> explorers;
-	//
-	//		//Trip a editar
-	//		trip = this.tripRepository.findOne(tripId);
-	//		//Para que un explorer edite un trip debe de tener el estatus ACCEPTED
-	//		tripsAccepted = new ArrayList<Trip>(this.findTripsWhitStatusAcceptedNotStarted());
-	//		//Comprobamos que sea de ese Explorer
-	//		Assert.isTrue(tripsAccepted.contains(trip));
-	//		//explorer conectado
-	//		explorer = this.explorerService.findByPrincipal();
-	//		//Lista de explorer con ese trip
-	//		explorers = new ArrayList<Explorer>(this.explorerService.findExplorersByTripId(tripId));
-	//		//Vemos si el explorer conectado tiene ese trip
-	//		Assert.isTrue(explorers.contains(explorer));
-	//		tripEdit = this.tripRepository.save(trip);
-	//		if (trip.isCancelled())
-	//			Assert.notNull(trip.getReasonWhy());
-	//		return tripEdit;
-	//	}
-	//
+	public Trip findOneToCancelManager(int tripId) {
+		this.managerService.checkPrincipal();
+		Collection<Trip> allTrips;
+		Trip trip;
+		Trip tripEdit;
+		Manager manager;
+		//Trip a editar
+		trip = this.tripRepository.findOne(tripId);
+		//Para que un manager cancele un trip NO puede haber empezado
+		allTrips = new ArrayList<>(this.tripRepository.findAllTripsNotPublished());
+		Assert.isTrue(allTrips.contains(trip));
+		//Comprobamos que sea de ese Manager
+		manager = this.managerService.findByPrincipal();
+		Assert.isTrue(manager.getTrips().contains(trip));
+		tripEdit = this.tripRepository.save(trip);
+		if (trip.isCancelled())
+			Assert.notNull(trip.getReasonWhy());
+		return tripEdit;
+	}
+
+	public Trip findOneToCancelExplorer(final int tripId) {
+		this.explorerService.checkPrincipal();
+		Trip trip;
+		Trip tripEdit;
+		Explorer explorer;
+		Collection<Trip> tripsAccepted;
+		Collection<Explorer> explorers;
+
+		//Trip a editar
+		trip = this.tripRepository.findOne(tripId);
+		//Para que un explorer edite un trip debe de tener el estatus ACCEPTED
+		tripsAccepted = new ArrayList<Trip>(this.findTripsWhitStatusAcceptedNotStarted());
+		//Comprobamos que sea de ese Explorer
+		Assert.isTrue(tripsAccepted.contains(trip));
+		//explorer conectado
+		explorer = this.explorerService.findByPrincipal();
+		//Lista de explorer con ese trip
+		explorers = new ArrayList<Explorer>(this.explorerService.findExplorersByTripId(tripId));
+		//Vemos si el explorer conectado tiene ese trip
+		Assert.isTrue(explorers.contains(explorer));
+		tripEdit = this.tripRepository.save(trip);
+		if (trip.isCancelled())
+			Assert.notNull(trip.getReasonWhy());
+		return tripEdit;
+	}
+
 	//	//Todos los Trips que apply un explorer
 	//	//***** TEST HECHO *******
-	//	public Collection<Trip> findAllTripsApplyByExplorerId(int explorerId) {
-	//		Collection<Trip> trips;
-	//		trips = new ArrayList<>(this.tripRepository.findAllTripsApplyByExplorerId(explorerId));
-	//		Assert.notNull(trips);
-	//		return trips;
-	//	}
-	//
-	//	//Trips auditados por el auditorId
-	//	//***** TEST HECHO *******
-	//	public Collection<Trip> findByAuditorId(int auditorId) {
-	//		Collection<Trip> trips;
-	//		trips = new ArrayList<Trip>(this.tripRepository.findByAuditorId(auditorId));
-	//		Assert.notNull(trips);
-	//		return trips;
-	//
-	//	}
-	//
-	//	public Collection<Trip> findAllTripsNotPublished() {
-	//		Collection<Trip> trips;
-	//		trips = new ArrayList<>();
-	//		Assert.notNull(trips);
-	//		return trips;
-	//	}
-	//
-	//
-	//	//	public void setPriceOfTrip(Trip trip) {
-	//	//		Collection<Stage> stagesOfTrip;
-	//	//		Double priceOfTrip;
-	//	//
-	//	//		priceOfTrip = 0.0;
-	//	//		stagesOfTrip = this.findOne(trip.getId()).getStages();
-	//	//
-	//	//		for (Stage s : stagesOfTrip)
-	//	//			priceOfTrip = priceOfTrip + s.getTotalPrice();
-	//	//		trip.setPrice(priceOfTrip);
-	//	//	}
-	//
-	//	public Double findPrice(int tripId) {
-	//		Double price;
-	//
-	//		price = this.tripRepository.findPrice(tripId);
-	//		Assert.notNull(price);
-	//
-	//		return price;
-	//	}
+	public Collection<Trip> findAllTripsApplyByExplorerId(int explorerId) {
+		Collection<Trip> trips;
+		trips = new ArrayList<>(this.tripRepository.findAllTripsApplyByExplorerId(explorerId));
+		Assert.notNull(trips);
+		return trips;
+	}
+
+	//Trips auditados por el auditorId
+	//***** TEST HECHO *******
+	public Collection<Trip> findByAuditorId(int auditorId) {
+		Collection<Trip> trips;
+		trips = new ArrayList<Trip>(this.tripRepository.findByAuditorId(auditorId));
+		Assert.notNull(trips);
+		return trips;
+
+	}
+
+	public Collection<Trip> findAllTripsNotPublished() {
+		Collection<Trip> trips;
+		trips = new ArrayList<>();
+		Assert.notNull(trips);
+		return trips;
+	}
+
 	//	public void setPriceOfTrip(Trip trip) {
-	//		Double price;
-	//		price = this.tripRepository.findPrice(trip.getId());
-	//		trip.setPrice(price);
+	//		Collection<Stage> stagesOfTrip;
+	//		Double priceOfTrip;
 	//
+	//		priceOfTrip = 0.0;
+	//		stagesOfTrip = this.findOne(trip.getId()).getStages();
+	//
+	//		for (Stage s : stagesOfTrip)
+	//			priceOfTrip = priceOfTrip + s.getTotalPrice();
+	//		trip.setPrice(priceOfTrip);
 	//	}
-	//
-	//	public void setPriceOfAllTrips() {
-	//		Collection<Trip> trips;
-	//		trips = this.tripRepository.findAll();
-	//
-	//		for (Trip t : trips)
-	//			this.setPriceOfTrip(t);
-	//
-	//	}
+
+	public Double findPrice(int tripId) {
+		Double price;
+
+		price = this.tripRepository.findPrice(tripId);
+		Assert.notNull(price);
+
+		return price;
+	}
+	public void setPriceOfTrip(Trip trip) {
+		Double price;
+		price = this.tripRepository.findPrice(trip.getId());
+		trip.setPrice(price);
+
+	}
+
+	public void setPriceOfAllTrips() {
+		Collection<Trip> trips;
+		trips = this.tripRepository.findAll();
+
+		for (Trip t : trips)
+			this.setPriceOfTrip(t);
+
+	}
 
 	public String generatedTicker() {
 

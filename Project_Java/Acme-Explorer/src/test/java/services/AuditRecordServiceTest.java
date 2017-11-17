@@ -9,6 +9,7 @@ import javax.transaction.Transactional;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.util.Assert;
@@ -64,15 +65,13 @@ public class AuditRecordServiceTest extends AbstractTest {
 
 		AuditRecord auditRecord;
 		Auditor auditor;
-		Trip trip1;
+
 		Collection<Attachment> attachments;
 
 		auditRecord = this.auditRecordService.create();
 
-		trip1 = this.tripService.findOne(super.getEntityId("trip1"));
 		attachments = new ArrayList<Attachment>();
 
-		auditRecord.setTrip(trip1);
 		auditRecord.setTitle("titletest");
 		auditRecord.setDescription("descriptiontest");
 		auditRecord.setDraftMode(true);
@@ -91,14 +90,11 @@ public class AuditRecordServiceTest extends AbstractTest {
 	public void testDeleleNegative() {
 		Auditor auditor;
 		AuditRecord auditRecord;
-		Trip trip;
 
 		auditRecord = this.auditRecordService.create();
 		auditor = this.auditorService.findAll().iterator().next();
-		trip = this.tripService.findAll().iterator().next();
 
 		auditRecord.setAuditor(auditor);
-		auditRecord.setTrip(trip);
 		auditRecord.setTitle("title2");
 		auditRecord.setDescription("description2");
 		auditRecord.setDraftMode(false);
@@ -109,10 +105,15 @@ public class AuditRecordServiceTest extends AbstractTest {
 	}
 
 	@Test
+	@Rollback(false)
 	public void testDelelePositive() {
 		// Porque sé que la auditrecord que le estoy pasando tiene el modo borrador a true
 		AuditRecord auditRecord;
+		Trip trip;
 		auditRecord = this.auditRecordService.findOne(super.getEntityId("auditrecord3"));
+		//TENGO QUE BORRAR EL AUDITRECORD 3 DE LA TRIP SUYA
+		trip = this.auditRecordService.findTripsGivingAnAuditRecord(super.getEntityId("auditrecord3"));
+		trip.getAuditRecords().remove(auditRecord);
 		this.auditRecordService.delete(auditRecord);
 
 	}

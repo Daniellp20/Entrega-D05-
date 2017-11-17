@@ -14,6 +14,7 @@ import repositories.AuditRecordRepository;
 import domain.Attachment;
 import domain.AuditRecord;
 import domain.Auditor;
+import domain.Trip;
 
 @Service
 @Transactional
@@ -95,4 +96,11 @@ public class AuditRecordService {
 		Assert.notNull(auditRecord);
 		Assert.isTrue(auditRecord.isDraftMode() == true);
 	}
+
+	public Trip findTripsGivingAnAuditRecord(int auditRecodId) {
+		Trip trip;
+		trip = this.auditRecordRepository.findTripsGivingAnAuditRecord(auditRecodId);
+		return trip;
+	}
+
 }
