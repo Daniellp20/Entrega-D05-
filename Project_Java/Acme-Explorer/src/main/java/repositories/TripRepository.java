@@ -27,15 +27,15 @@ public interface TripRepository extends JpaRepository<Trip, Integer> {
 	Collection<Trip> findAllTripsPublishedNotStarted();
 
 	//Requisito 13.4
-	@Query("select a.trip from ApplicationFor a where a.trip.startDate > now() and a.status='ACCEPTED'")
+	@Query("select t from Trip t join t.applicationsFor a where a.status='ACCEPTED' and t.startDate>CURRENT_TIMESTAMP")
 	Collection<Trip> findTripsWhitStatusAcceptedNotStarted();
 
 	//Requisito de información C/6.
-	@Query("select a.trip from ApplicationFor a where a.explorer.id=?1")
+	@Query("select t from Trip t join t.applicationsFor a where a.explorer.id=?1")
 	Collection<Trip> findAllTripsApplyByExplorerId(int explorerId);
 
 	//Requisito de Información B/10.
-	@Query("select a.trip from AuditRecord a where a.auditor=?1")
+	@Query("select t from Trip t join t.auditRecords a where a.auditor.id=?1")
 	Collection<Trip> findByAuditorId(int auditorId);
 
 	//Suma todos los precios con iva de las stages de la trip pasada como parámetro.
