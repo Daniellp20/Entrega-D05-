@@ -42,7 +42,7 @@ public class TripService {
 
 	// Simple CRUD methods-----------------------------------------------------
 	//***** TEST HECHO *******
-	public Trip create(Manager manager) {
+	public Trip create(final Manager manager) {
 		this.managerService.checkPrincipal();
 
 		Collection<ApplicationFor> applicationsFor;
@@ -162,7 +162,7 @@ public class TripService {
 	//	//**********************************************************************************
 	//	//***********************  METODO CANCELAR  ****************************************
 	//	//**********************************************************************************
-	public Trip findOneToCancelManager(int tripId) {
+	public Trip findOneToCancelManager(final int tripId) {
 		this.managerService.checkPrincipal();
 		Collection<Trip> allTrips;
 		Trip trip;
@@ -210,7 +210,7 @@ public class TripService {
 
 	//	//Todos los Trips que apply un explorer
 	//	//***** TEST HECHO *******
-	public Collection<Trip> findAllTripsApplyByExplorerId(int explorerId) {
+	public Collection<Trip> findAllTripsApplyByExplorerId(final int explorerId) {
 		Collection<Trip> trips;
 		trips = new ArrayList<>(this.tripRepository.findAllTripsApplyByExplorerId(explorerId));
 		Assert.notNull(trips);
@@ -219,7 +219,7 @@ public class TripService {
 
 	//Trips auditados por el auditorId
 	//***** TEST HECHO *******
-	public Collection<Trip> findByAuditorId(int auditorId) {
+	public Collection<Trip> findByAuditorId(final int auditorId) {
 		Collection<Trip> trips;
 		trips = new ArrayList<Trip>(this.tripRepository.findByAuditorId(auditorId));
 		Assert.notNull(trips);
@@ -234,6 +234,20 @@ public class TripService {
 		return trips;
 	}
 
+	public Collection<Trip> findAllTripsByApplicationForId(final int applicationForId) {
+		Collection<Trip> res;
+		res = this.tripRepository.findAllTripsByApplicationForId(applicationForId);
+		Assert.notNull(res);
+		return res;
+	}
+
+	public Collection<Trip> findAllTripsByTagId(final int tagId) {
+		Collection<Trip> res;
+		res = this.tripRepository.findAllTripsByTagId(tagId);
+		//El resultado SI puede ser null puesto que puede no haber ninguna Trip con ese tag
+		return res;
+	}
+
 	//	public void setPriceOfTrip(Trip trip) {
 	//		Collection<Stage> stagesOfTrip;
 	//		Double priceOfTrip;
@@ -246,7 +260,7 @@ public class TripService {
 	//		trip.setPrice(priceOfTrip);
 	//	}
 
-	public Double findPrice(int tripId) {
+	public Double findPrice(final int tripId) {
 		Double price;
 
 		price = this.tripRepository.findPrice(tripId);
@@ -254,7 +268,7 @@ public class TripService {
 
 		return price;
 	}
-	public void setPriceOfTrip(Trip trip) {
+	public void setPriceOfTrip(final Trip trip) {
 		Double price;
 		price = this.tripRepository.findPrice(trip.getId());
 		trip.setPrice(price);
@@ -265,7 +279,7 @@ public class TripService {
 		Collection<Trip> trips;
 		trips = this.tripRepository.findAll();
 
-		for (Trip t : trips)
+		for (final Trip t : trips)
 			this.setPriceOfTrip(t);
 
 	}
@@ -278,12 +292,12 @@ public class TripService {
 		String ticker;
 
 		ticker = String.valueOf(calendar.get(Calendar.YEAR)).substring(2) + String.valueOf(calendar.get(Calendar.MONTH) + 1) + String.valueOf(calendar.get(Calendar.DAY_OF_MONTH));
-		char[] arr = new char[] {
+		final char[] arr = new char[] {
 			'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'
 		};
 		String cadenaAleatoria = "";
 		for (Integer i = 0; i <= 3; i++) {
-			char elegido = arr[(int) (Math.random() * 26)];
+			final char elegido = arr[(int) (Math.random() * 26)];
 			cadenaAleatoria = cadenaAleatoria + elegido;
 
 		}

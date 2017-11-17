@@ -46,7 +46,7 @@ public class StoryServiceTest extends AbstractTest {
 	}
 
 	@Test
-	public void testSavePositive() {
+	public void testSave() {
 		super.authenticate("explorer1");
 		Story story;
 		final Attachment attachment1 = new Attachment();
@@ -94,7 +94,7 @@ public class StoryServiceTest extends AbstractTest {
 	public void testDelete() {
 		Story story;
 
-		story = this.storyService.findOne(super.getEntityId("story1"));
+		story = this.storyService.findOne(super.getEntityId("story2"));
 
 		this.storyService.delete(story);
 	}

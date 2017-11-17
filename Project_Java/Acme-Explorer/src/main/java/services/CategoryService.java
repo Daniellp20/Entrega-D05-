@@ -11,7 +11,6 @@ import org.springframework.util.Assert;
 
 import repositories.CategoryRepository;
 import domain.Category;
-import domain.Trip;
 
 @Service
 @Transactional
@@ -22,8 +21,6 @@ public class CategoryService {
 	private CategoryRepository			categoryRepository;
 
 	// Supporting services ----------------------------------------------------
-	@Autowired
-	private TripService					tripService;
 	@Autowired
 	private ConfigurationSystemService	configurationSystemService;
 	@Autowired
@@ -66,30 +63,21 @@ public class CategoryService {
 	public Category save(final Category category) {
 		Assert.notNull(category);
 		Assert.notNull(this.administratorService.findByPrincipal());
-		Collection<Category> categories;
 		Category result;
 
-		//categories=categoryRepository.findAll();
 		result = this.categoryRepository.save(category);
-		//No se añade ninguna Trip al crearse una category porque asi lo dice en los requisitos
 
 		return result;
 	}
 
 	public void delete(final Category category) {
-		Collection<Trip> tripsWithThisCategory;
 		Assert.notNull(category);
 		Assert.isTrue(category.getId() != 0);
 		Assert.isTrue(this.categoryRepository.exists(category.getId()));
 		this.administratorService.checkPrincipal();
-		tripsWithThisCategory = this.tripService.findAllTripsByCategoryId(category.getId());
 		Assert.isTrue(!(this.configurationSystemService.defaultCategories().contains(category)));
 
 		Assert.isTrue(category.getSubCategories().isEmpty());
 		this.categoryRepository.delete(category);
-		//Se quita de trip el category quitarlo
-		if (tripsWithThisCategory != null)
-			for (final Trip trip : tripsWithThisCategory)
-				trip.getCategories().remove(category);
 	}
 }

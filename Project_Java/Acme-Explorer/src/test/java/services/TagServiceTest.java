@@ -41,25 +41,21 @@ public class TagServiceTest extends AbstractTest {
 
 	@Test
 	public void testSave() {
-		Tag tag = this.tagService.create();
+		final Tag tag = this.tagService.create();
 
 		tag.setName("tag 11");
 
-		Tag newTag = this.tagService.save(tag);
+		final Tag newTag = this.tagService.save(tag);
 		Assert.notNull(newTag);
 	}
 
 	@Test
 	public void testDelete() {
 		this.authenticate("administrator1");
-		Tag tag = this.tagService.create();
+		Tag tag;
+		tag = this.tagService.findOne(super.getEntityId("tag2"));
 
-		tag.setName("tag 11");
-
-		Tag newTag = this.tagService.save(tag);
-		Assert.notNull(newTag);
-
-		this.tagService.delete(newTag);
+		this.tagService.delete(tag);
 		this.unauthenticate();
 
 	}

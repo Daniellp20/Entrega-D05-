@@ -17,6 +17,7 @@ import domain.ApplicationFor;
 import domain.CreditCard;
 import domain.Explorer;
 import domain.Manager;
+import domain.Trip;
 
 @Service
 @Transactional
@@ -32,6 +33,8 @@ public class ApplicationForService {
 	private ExplorerService				explorerService;
 	@Autowired
 	private ManagerService				managerService;
+	@Autowired
+	private TripService					tripService;
 
 
 	// Constructors -----------------------------------------------------------
@@ -84,7 +87,7 @@ public class ApplicationForService {
 
 	public ApplicationFor save(final ApplicationFor applicationFor) {
 		final Date moment;
-		assert applicationFor != null;
+		Assert.notNull(applicationFor);
 
 		ApplicationFor result;
 
@@ -101,11 +104,14 @@ public class ApplicationForService {
 		return result;
 	}
 	public void delete(final ApplicationFor applicationFor) {
-		assert applicationFor != null;
-		assert applicationFor.getId() != 0;
-
+		Assert.notNull(applicationFor != null);
+		Assert.isTrue(applicationFor.getId() != 0);
 		Assert.isTrue(this.applicationForRepository.exists(applicationFor.getId()));
+		Collection<Trip> trips;
 
+		trips = this.tripService.findAllTripsByApplicationForId(applicationFor.getId());
+		for (final Trip t : trips)
+			t.getApplicationsFor().remove(applicationFor);
 		this.applicationForRepository.delete(applicationFor);
 	}
 

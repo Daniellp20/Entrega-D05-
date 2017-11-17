@@ -15,7 +15,6 @@ import org.springframework.util.Assert;
 import utilities.AbstractTest;
 import domain.Auditor;
 import domain.Note;
-import domain.Trip;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {
@@ -30,9 +29,6 @@ public class NoteServiceTest extends AbstractTest {
 
 	@Autowired
 	private AuditorService	auditorService;
-
-	@Autowired
-	private TripService		tripService;
 
 
 	// Tests ----------------------------------------------
@@ -50,7 +46,7 @@ public class NoteServiceTest extends AbstractTest {
 
 	@Test
 	public void testFindAll() {
-		Collection<Note> result = this.noteService.findAll();
+		final Collection<Note> result = this.noteService.findAll();
 		Assert.notEmpty(result);
 	}
 
@@ -59,15 +55,12 @@ public class NoteServiceTest extends AbstractTest {
 		this.authenticate("auditor4");
 		Note note;
 		Auditor auditor;
-		Trip trip1;
 		String body;
 
 		note = this.noteService.create();
-		trip1 = this.tripService.findOne(super.getEntityId("trip1"));
 
 		body = "note's test body";
 
-		note.setTrip(trip1);
 		note.setRemark(5);
 		note.setBody(body);
 
@@ -76,7 +69,6 @@ public class NoteServiceTest extends AbstractTest {
 		note = this.noteService.save(note);
 
 		//	Assert.isTrue(auditor.getNotes().contains(note));
-		//	Assert.isTrue(trip1.getNotes().contains(note));
 		super.unauthenticate();
 	}
 
@@ -93,13 +85,10 @@ public class NoteServiceTest extends AbstractTest {
 		Note note;
 		String reply;
 		Auditor auditor;
-		Trip trip;
 
 		note = this.noteService.create();
 		auditor = this.auditorService.findOne(super.getEntityId("auditor1"));
-		trip = this.tripService.findOne(super.getEntityId("trip1"));
 
-		note.setTrip(trip);
 		note.setRemark(6);
 		note.setAuditor(auditor);
 		note.setBody("this is the body");

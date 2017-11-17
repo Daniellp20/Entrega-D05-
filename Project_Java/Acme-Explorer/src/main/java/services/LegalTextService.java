@@ -1,6 +1,7 @@
 
 package services;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
 
@@ -11,6 +12,7 @@ import org.springframework.util.Assert;
 
 import repositories.LegalTextRepository;
 import domain.LegalText;
+import domain.Trip;
 
 @Service
 @Transactional
@@ -37,12 +39,15 @@ public class LegalTextService {
 
 		LegalText result;
 		Date moment;
+		Collection<Trip> trips;
 
 		result = new LegalText();
 		moment = new Date(System.currentTimeMillis() - 1000);
+		trips = new ArrayList<Trip>();
 
 		result.setMoment(moment);
 		result.setDraftMode(true);
+		result.setTrips(trips);
 
 		return result;
 	}
@@ -86,7 +91,7 @@ public class LegalTextService {
 
 	//Other services-------------------------------
 
-	public LegalText findOneToEdit(int idlegalText) {
+	public LegalText findOneToEdit(final int idlegalText) {
 
 		this.administratorService.checkPrincipal();
 

@@ -10,6 +10,7 @@ import org.springframework.util.Assert;
 
 import repositories.TagRepository;
 import domain.Tag;
+import domain.Trip;
 
 @Service
 @Transactional
@@ -22,6 +23,8 @@ public class TagService {
 	// Supporting services ----------------------------------------------------
 	@Autowired
 	private AdministratorService	administratorService;
+	@Autowired
+	private TripService				tripService;
 
 
 	// Constructors------------------------------------------------------------
@@ -46,16 +49,17 @@ public class TagService {
 		return result;
 	}
 
-	public Tag findOne(int tagId) {
+	public Tag findOne(final int tagId) {
 		Assert.isTrue(tagId != 0);
 
 		Tag result;
 		result = this.tagRepository.findOne(tagId);
+		Assert.notNull(result);
 
 		return result;
 	}
 
-	public Tag save(Tag tag) {
+	public Tag save(final Tag tag) {
 		Collection<Tag> tagsWithTrip;
 		tagsWithTrip = this.tagRepository.findTagWithTrip();
 
@@ -75,6 +79,11 @@ public class TagService {
 		this.administratorService.checkPrincipal();
 		Assert.notNull(tag);
 		Assert.notNull(this.tagRepository.findOne(tag.getId()));
+		final Collection<Trip> trips;
+
+		trips = this.tripService.findAllTripsByTagId(tag.getId());
+		for (final Trip t : trips)
+			t.getTags().remove(tag);
 
 		this.tagRepository.delete(tag);
 	}

@@ -31,8 +31,6 @@ public class ApplicationForServiceTest extends AbstractTest {
 	// Supporting services ----------------------------------------------------
 
 	@Autowired
-	private TripService				tripService;
-	@Autowired
 	private ManagerService			managerService;
 
 
@@ -56,11 +54,9 @@ public class ApplicationForServiceTest extends AbstractTest {
 		applicationFor.setMoment(new Date());
 		applicationFor.setStatus("DUE");
 		applicationFor.setCreditCard(this.applicationForService.findOne(super.getEntityId("applicationFor1")).getCreditCard());
-		applicationFor.setTrip(this.tripService.findOne(super.getEntityId("trip1")));
 
 		Assert.notNull(applicationFor.getId());
 		Assert.notNull(applicationFor.getExplorer());
-		Assert.notNull(applicationFor.getTrip());
 		Assert.notNull(applicationFor.getCreditCard());
 
 		applicationFor = this.applicationForService.save(applicationFor);
@@ -93,7 +89,7 @@ public class ApplicationForServiceTest extends AbstractTest {
 	@Test
 	public void testFindOne() {
 		ApplicationFor applicationFor;
-		applicationFor = this.applicationForService.findOne(super.getEntityId("applicationFor1"));
+		applicationFor = this.applicationForService.findOne(super.getEntityId("applicationFor2"));
 		Assert.notNull(applicationFor);
 	}
 
@@ -114,7 +110,7 @@ public class ApplicationForServiceTest extends AbstractTest {
 	public void testDelete() {
 		ApplicationFor applicationFor;
 
-		applicationFor = this.applicationForService.findOne(super.getEntityId("applicationFor1"));
+		applicationFor = this.applicationForService.findOne(super.getEntityId("applicationFor3"));
 
 		this.applicationForService.delete(applicationFor);
 	}
