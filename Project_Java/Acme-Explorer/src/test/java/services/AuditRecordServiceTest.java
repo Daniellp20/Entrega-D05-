@@ -33,9 +33,6 @@ public class AuditRecordServiceTest extends AbstractTest {
 	@Autowired
 	private AuditorService		auditorService;
 
-	@Autowired
-	private TripService			tripService;
-
 
 	// Tests ----------------------------------------------
 
