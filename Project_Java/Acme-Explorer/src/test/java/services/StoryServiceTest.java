@@ -70,8 +70,7 @@ public class StoryServiceTest extends AbstractTest {
 		//Compruebo que tiene esta Story el explorerPrincipal y la trip1 desde la bd
 		//Para que funcione el siguiente codigo cambiar el metodo save a saveAndFlush de storyRepository en storyService
 		//El codigo solo se comenta en las relaciones bidireccionales porque tiene que guardarse en la bd primero para que se actualice sus objetos relacionados
-		//		Assert.isTrue(story.getExplorer().getStories().contains(story));
-		//		Assert.isTrue(trip1.getStories().contains(story));
+		//Assert.isTrue(story.getExplorer().getStories().contains(story));
 
 		super.unauthenticate();
 	}

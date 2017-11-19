@@ -96,4 +96,11 @@ public class ExplorerServiceTest extends AbstractTest {
 		Assert.notNull(explorers);
 	}
 
+	@Test
+	public void findExplorersByContactEmergencyId() {
+		Collection<Explorer> res;
+		res = this.explorerService.findExplorersByContactEmergencyId(super.getEntityId("contactEmergency1"));
+		Assert.notNull(res);
+	}
+
 }
