@@ -20,3 +20,32 @@
 <%@taglib prefix="display" uri="http://displaytag.sf.net"%>
 
 // TODO: TO BE COMPLETED
+<display:table pagesize="5" class="displaytag" keepStatus="true"
+	name="sponsorships" requestURI="sponsorship/sponsor/list.do" id="row">
+	
+	<!-- Action links -->
+
+	<security:authorize access="hasRole('SPONSOR')">
+		<display:column>
+		<spring:url value="sponsorship/sponsor/edit.do" var="editURL">
+		<spring:param name="sponsorshipId" value="${row.id}"/>
+		</spring:url>
+		<a href="${editURL}"><spring:message code="sponsorship.edit"/></a>
+		</display:column>		
+	
+	
+		<display:column>
+		<spring:url value="sponsorship/sponsor/display.do" var="displayURL">
+		<spring:param name="sponsorshipId" value="${row.id}"/>
+		</spring:url>
+		<a href="${displayURL}"><spring:message code="sponsorship.display"/></a>
+		</display:column>		
+	</security:authorize>
+	
+</display:table>
+
+<security:authorize access="hasRole('SPONSOR')">
+      <a href="sponsorship/sponsor/create.do">
+        <spring:message  code="sponsorship.create" />
+      </a>  
+	</security:authorize>
