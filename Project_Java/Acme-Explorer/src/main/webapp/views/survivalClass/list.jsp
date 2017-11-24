@@ -25,26 +25,8 @@
 <display:table pagesize="5" class="displaytag" keepStatus="true"
 	name="survivalClasses" requestURI="${requestURI}" id="row">
 
-	<!-- Mensaje en pantalla -->
-	<spring:message code="survivalClass.listSurvivalClass"></spring:message>
-
-
-
 	<!-- Action links -->
 
-	<!-- El boton de registrarse solo se mostrara en caso de que se haya acceddido a contratar una survival Class con explorer -->
-	<security:authorize access="hasRole('EXPLORER')">
-		<jstl:if
-			test="${requestURI=='survivalClass/explorer/list-not-registered.do'}">
-			<display:column>
-				<spring:url value="survivalClass/explorer/register.do"
-					var="registeredURL">
-					<spring:param name="survivalClassId" value="${row.id}" />
-				</spring:url>
-				<a href="${registeredURL}"><spring:message
-						code="survivalClass.register" /></a>
-			</display:column>
-		</jstl:if>
 
 		<!-- En caso de que se acceda al listado de survivalClass con manager se mostrara un boton de delete y otro de editar ademas del display -->
 		<security:authorize access="hasRole('MANAGER')">
@@ -77,7 +59,7 @@
 			<a href="${displayURL}"><spring:message
 					code="survivalClass.display" /></a>
 		</display:column>
-	</security:authorize>
+	
 
 	<!-- Attributes -->
 	<spring:message code="survivalClass.title" var="titleHeader" />
