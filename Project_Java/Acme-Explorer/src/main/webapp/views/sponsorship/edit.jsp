@@ -41,6 +41,46 @@
 	<form:errors cssClass="error" path="link" />
 	<br />
 	
+	<form:label path="creditCard">
+		<spring:message code="sponsorship.creditCard" />:
+	</form:label>
+	<br />
+	
+	<form:label path="creditCardholderName">
+		<spring:message code="sponsorship.creditCard.holderName" />:
+	</form:label>
+	<form:input path="creditCardholderName" />
+	<br/>
+	
+	<form:label path="creditCardbrandName">
+		<spring:message code="sponsorship.creditCard.brandName" />:
+	</form:label>
+	<form:input path="creditCardbrandName" />
+	<br/>
+	
+	<form:label path="creditCardnumber">
+		<spring:message code="sponsorship.creditCard.number" />:
+	</form:label>
+	<form:input path="creditCardnumber" />
+	<br/>
+	
+	<form:label path="creditCardexpirationMonth">
+		<spring:message code="sponsorship.creditCard.expirationMonth" />:
+	</form:label>
+	<form:input path="creditCardexpirationMonth" />
+	<br/>
+	
+	<form:label path="creditCardexpirationYear">
+		<spring:message code="sponsorship.creditCard.expirationYear" />:
+	</form:label>
+	<form:input path="creditCardeexpirationYear" />
+	<br/>
+	
+	<form:label path="creditCardcvv">
+		<spring:message code="sponsorship.creditCard.cvv" />:
+	</form:label>
+	<form:input path="creditCardcvv" />
+	<br/>
 	
 	
 	<!-- botones --> 
