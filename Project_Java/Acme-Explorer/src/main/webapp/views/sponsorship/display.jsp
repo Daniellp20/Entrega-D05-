@@ -20,3 +20,23 @@
 <%@taglib prefix="display" uri="http://displaytag.sf.net"%>
 
 // TODO: TO BE COMPLETED
+
+<display:table name="sponsorship" class="displaytag"
+  requestURI="sponsorship/display.do" id="row">
+  
+  <spring:message code="sponsorship.link" />
+	<jstl:out value="${row.link}"></jstl:out>
+	<p>
+	<spring:message code="sponsorship.bannerURL" />
+		<jstl:out value="${row.bannerURL.filename}"></jstl:out>
+	</p>
+
+	<!-- botón -->
+	
+	<input type="button" name="cancel"
+		value="<spring:message code="sponsorship.cancel"/>"
+		onclick="javascript: window.location.replace('sponsorship/sponsor/list.do')" />
+	<br />
+
+	<p>
+</display:table>

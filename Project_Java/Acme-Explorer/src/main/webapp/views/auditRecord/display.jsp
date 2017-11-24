@@ -23,30 +23,29 @@
 
 <display:table name="auditRecord" class="displaytag"
   requestURI="auditRecord/display.do" id="row">
-  
-  <form:label path="title">
-		<spring:message code="auditRecord.title" />:
-	</form:label>
-	<form:input path="title" />
-	<br/>
-	
-  <form:label path="realisedMoment">
-		<spring:message code="auditRecord.realisedMoment" />:
-	</form:label>
-	<form:input path="realisedMoment" />
-	<br/>
-	
-	<form:label path="description">
-		<spring:message code="auditRecord.description" />:
-	</form:label>
-	<form:input path="description" />
-	<br/>
-	
-	<form:label path="attachments">
-		<spring:message code="auditRecord.attachments" />:
-	</form:label>
-	<form:input path="attachments" />
-	<br/>
+  	
+	<!-- Attributes -->
+
+
+	<spring:message code="auditRecord.title" />
+	<jstl:out value="${row.title }"></jstl:out>
+
+	<p>
+		<spring:message code="auditRecord.description" />
+		<jstl:out value="${row.description}"></jstl:out>
+	</p>
+
+	<p>
+		<spring:message code="auditRecord.realisedMoment" />
+		<jstl:out value="${row.realisedMoment}"></jstl:out>
+	</p>
+
+	<p>
+		<spring:message code="auditRecord.attachments" />
+		<jstl:out value="${row.attachments}"></jstl:out>
+	</p>
+
+	<!-- botón -->
 	
 	<input type="button" name="cancel"
 		value="<spring:message code="auditRecord.cancel"/>"
