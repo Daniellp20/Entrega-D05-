@@ -20,3 +20,36 @@
 <%@taglib prefix="display" uri="http://displaytag.sf.net"%>
 
 // TODO: TO BE COMPLETED
+
+<display:table name="auditRecord" class="displaytag"
+  requestURI="auditRecord/display.do" id="row">
+  	
+	<!-- Attributes -->
+
+
+	<spring:message code="auditRecord.title" />
+	<jstl:out value="${row.title }"></jstl:out>
+
+	<p>
+		<spring:message code="auditRecord.description" />
+		<jstl:out value="${row.description}"></jstl:out>
+	</p>
+
+	<p>
+		<spring:message code="auditRecord.realisedMoment" />
+		<jstl:out value="${row.realisedMoment}"></jstl:out>
+	</p>
+
+	<p>
+		<spring:message code="auditRecord.attachments" />
+		<jstl:out value="${row.attachments}"></jstl:out>
+	</p>
+
+	<!-- botón -->
+	
+	<input type="button" name="cancel"
+		value="<spring:message code="auditRecord.cancel"/>"
+		onclick="javascript: window.location.replace('auditRecord/auditor/list.do')" />
+	<br />
+
+ </display:table>
