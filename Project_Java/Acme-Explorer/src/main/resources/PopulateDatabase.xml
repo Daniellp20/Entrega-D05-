@@ -78,7 +78,7 @@
 
 	<bean id="userAccountAdmin3" class="security.UserAccount">
 		<property name="username" value="administrator3" />
-		<property name="password" value="d1849d15043d73506d6a7523a1661e2d "/>
+		<property name="password" value="0185e578be37caa9c276e0c8903e261a"/>
 		<property name="authorities">
 			<list>
 				<bean class="security.Authority">
