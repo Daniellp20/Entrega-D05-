@@ -42,11 +42,6 @@
 	</p>
 
 	<p>
-		<spring:message code="survivalClass.organisedMoment" />
-		<jstl:out value="${row.organisedMoment }"></jstl:out>
-	</p>
-
-	<p>
 		<spring:message code="survivalClass.location" />
 		<jstl:out value="${row.location }"></jstl:out>
 	</p>
