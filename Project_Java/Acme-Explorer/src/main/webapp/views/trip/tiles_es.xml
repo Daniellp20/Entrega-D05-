@@ -18,8 +18,14 @@
 
 	
 	<definition name="trip/list" extends="master.page">	
-		<put-attribute name="title" value="Lista de excursioness" />
+		<put-attribute name="title" value="Lista de excursiones" />
 		<put-attribute name="body" value="/views/trip/list.jsp" />
 	</definition>
+	
+	<definition name="trip/edit" extends="master.page">	
+		<put-attribute name="title" value="Editar viaje" />
+		<put-attribute name="body" value="/views/trip/edit.jsp" />
+	</definition>
+	
 	
 </tiles-definitions>
