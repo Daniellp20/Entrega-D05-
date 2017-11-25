@@ -37,7 +37,7 @@
 	<form:label path="realisedMoment" placeholder=" yyyy/dd/MM HH:hh">
 		<spring:message code="auditRecord.realisedMoment" />:
 	</form:label>
-	<form:input path="realisedMoment" />
+	<form:input path="realisedMoment" readonly="true"/>
 	<form:errors cssClass="error" path="realisedMoment" />
 	<br />
 	
