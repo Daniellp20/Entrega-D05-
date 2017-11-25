@@ -46,42 +46,54 @@
 	</form:label>
 	<br />
 	
-	<form:label path="creditCardholderName">
+	<fieldset>
+	
+	<form:label path="creditCard.holderName">
 		<spring:message code="sponsorship.creditCard.holderName" />:
 	</form:label>
-	<form:input path="creditCardholderName" />
+	<form:input path="creditCard.holderName" />
 	<br/>
 	
-	<form:label path="creditCardbrandName">
+	<form:label path="creditCard.brandName">
 		<spring:message code="sponsorship.creditCard.brandName" />:
 	</form:label>
-	<form:input path="creditCardbrandName" />
+	<form:input path="creditCard.brandName" />
 	<br/>
 	
-	<form:label path="creditCardnumber">
+	<form:label path="creditCard.number">
 		<spring:message code="sponsorship.creditCard.number" />:
 	</form:label>
-	<form:input path="creditCardnumber" />
+	<form:input path="creditCard.number" />
 	<br/>
 	
-	<form:label path="creditCardexpirationMonth">
+	<form:label path="creditCard.expirationMonth">
 		<spring:message code="sponsorship.creditCard.expirationMonth" />:
 	</form:label>
-	<form:input path="creditCardexpirationMonth" />
+	<form:input path="creditCard.expirationMonth" />
 	<br/>
 	
-	<form:label path="creditCardexpirationYear">
+	<form:label path="creditCard.expirationYear">
 		<spring:message code="sponsorship.creditCard.expirationYear" />:
 	</form:label>
-	<form:input path="creditCardeexpirationYear" />
+	<form:input path="creditCard.expirationYear" />
 	<br/>
 	
-	<form:label path="creditCardcvv">
+	<form:label path="creditCard.cvv">
 		<spring:message code="sponsorship.creditCard.cvv" />:
 	</form:label>
-	<form:input path="creditCardcvv" />
+	<form:input path="creditCard.cvv" />
 	<br/>
 	
+	</fieldset>
+	
+	<form:label path="trip">
+		<spring:message code="sponsorship.trip" />:
+	</form:label>
+	<form:select id="trip" path="trip">
+	<form:option value="0" label="----" />
+	<form:options items="${trip}" itemValue="id" itemLabel="title"/>
+	</form:select>
+	<br />
 	
 	<!-- botones --> 
 	

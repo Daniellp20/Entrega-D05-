@@ -34,7 +34,7 @@
 	<form:errors cssClass="error" path="title" />
 	<br />
 	
-	<form:label path="realisedMoment" placeholder=" yyyy/dd/MM HH:hh">
+	<form:label path="realisedMoment">
 		<spring:message code="auditRecord.realisedMoment" />:
 	</form:label>
 	<form:input path="realisedMoment" readonly="true"/>
@@ -56,7 +56,7 @@
 	<br />
 	
 	<form:label path="draftMode">
-		<spring:message code="card.draftMode" />:
+		<spring:message code="auditRecord.draftMode" />:
 	</form:label>
 	<form:select id="draftModes" path="draftMode">
 		<form:option value="0" label="----" />		
