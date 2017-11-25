@@ -30,6 +30,10 @@
 	<spring:message code="sponsorship.bannerURL" />
 		<jstl:out value="${row.bannerURL.filename}"></jstl:out>
 	</p>
+	<p>
+		<spring:message code="sponsorship.trip" />
+		<jstl:out value="${row.trip}"></jstl:out>
+	</p>
 
 	<!-- botón -->
 	
