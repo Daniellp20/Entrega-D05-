@@ -41,7 +41,7 @@ public class Note extends DomainEntity {
 	@NotNull
 	@Past
 	@Temporal(TemporalType.TIMESTAMP)
-	@DateTimeFormat(pattern = "yyyyy/MM/dd HH:mm")
+	@DateTimeFormat(pattern = "yyyy/MM/dd HH:mm")
 	public Date getCreatedMoment() {
 		return this.createdMoment;
 	}
@@ -68,7 +68,7 @@ public class Note extends DomainEntity {
 
 	@Past
 	@Temporal(TemporalType.TIMESTAMP)
-	@DateTimeFormat(pattern = "yyyyy/MM/dd HH:mm")
+	@DateTimeFormat(pattern = "yyyy/MM/dd HH:mm")
 	public Date getReplyMoment() {
 		return this.replyMoment;
 	}

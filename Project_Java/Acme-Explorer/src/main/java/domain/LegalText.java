@@ -59,7 +59,7 @@ public class LegalText extends DomainEntity {
 	}
 	@NotNull
 	@Temporal(TemporalType.TIMESTAMP)
-	@DateTimeFormat(pattern = "yyyyy/MM/dd HH:mm")
+	@DateTimeFormat(pattern = "yyyy/MM/dd HH:mm")
 	public Date getMoment() {
 		return this.moment;
 	}

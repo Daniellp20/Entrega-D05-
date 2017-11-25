@@ -34,7 +34,7 @@ public class AuditRecord extends DomainEntity {
 	@NotNull
 	@Past
 	@Temporal(TemporalType.TIMESTAMP)
-	@DateTimeFormat(pattern = "yyyyy/MM/dd HH:mm")
+	@DateTimeFormat(pattern = "yyyy/MM/dd HH:mm")
 	public Date getRealisedMoment() {
 		return this.realisedMoment;
 	}

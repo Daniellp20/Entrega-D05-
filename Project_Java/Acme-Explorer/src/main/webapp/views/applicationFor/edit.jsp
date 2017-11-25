@@ -28,7 +28,7 @@
 	<form:hidden path="reasonWhy"/>
 
 	<form:label path="moment">
-		<spring:message code="event.moment" />:
+		<spring:message code="applicationfor.moment" />:
 	</form:label>
 	<form:input path="moment" placeholder=" yyyy/dd/MM HH:hh" />
 	<form:errors cssClass="error" path="moment" />
@@ -37,7 +37,7 @@
 	<form:label path="trip">
 		<spring:message code="applicationFor.trip" />:
 	</form:label>
-	<form:select id="trips" path="trip" onchange="javascript: reloadExams()">
+	<form:select id="trips" path="trip" >
 		<form:option value="0" label="----" />		
 		<form:options items="${trips}" itemValue="id"
 			itemLabel="title" />
@@ -48,60 +48,55 @@
 	<form:label path="status">
 		<spring:message code="applicationFor.status" />:
 	</form:label>
-	<form:select id="status" path="status">
-		<form:option value="PENDING" label="PENDING" />
-	</form:select>
-	<br />
-	<form:label path="creditCard">
-		<spring:message code="creditcard" />:
+	<fieldset>
+	
+	<form:label path="creditCard.holderName">
+		<spring:message code="applicationfor.creditCard.holderName" />:
 	</form:label>
-	<br />
-	<form:label path="holderName">
-		<spring:message code="holderName" />:
+	<form:input path="creditCard.holderName" />
+	<br/>
+	
+	<form:label path="creditCard.brandName">
+		<spring:message code="applicationfor.creditCard.brandName" />:
 	</form:label>
-	<form:input path="holderName" />
-	<%-- <form:errors cssClass="error" path="holderName" /> --%>
-	<br />
-	<form:label path="brandName">
-		<spring:message code="brandName" />:
+	<form:input path="creditCard.brandName" />
+	<br/>
+	
+	<form:label path="creditCard.number">
+		<spring:message code="applicationfor.creditCard.number" />:
 	</form:label>
-	<form:input path="brandName" />
-	<%-- <form:errors cssClass="error" path="brandName" /> --%>
-	<br />
-	<form:label path="number">
-		<spring:message code="number" />:
+	<form:input path="creditCard.number" />
+	<br/>
+	
+	<form:label path="creditCard.expirationMonth">
+		<spring:message code="applicationfor.creditCard.expirationMonth" />:
 	</form:label>
-	<form:input path="number" />
-	<%-- <form:errors cssClass="error" path="number" /> --%>
-	<br />
-	<form:label path="expirationMonth">
-		<spring:message code="expirationMonth" />:
+	<form:input path="creditCard.expirationMonth" />
+	<br/>
+	
+	<form:label path="creditCard.expirationYear">
+		<spring:message code="applicationfor.creditCard.expirationYear" />:
 	</form:label>
-	<form:input path="expirationMonth" />
-	<%-- <form:errors cssClass="error" path="expirationMonth" /> --%>
-	<br />
-	<form:label path="expirationYear">
-		<spring:message code="expirationYear" />:
+	<form:input path="creditCard.expirationYear" />
+	<br/>
+	
+	<form:label path="creditCard.cvv">
+		<spring:message code="applicationfor.creditCard.cvv" />:
 	</form:label>
-	<form:input path="expirationYear" />
-	<%-- <form:errors cssClass="error" path="expirationYear" /> --%>
-	<br />
-	<form:label path="cvv">
-		<spring:message code="cvv" />:
-	</form:label>
-	<form:input path="cvv" />
-	<%-- <form:errors cssClass="error" path="cvv" /> --%>
-	<br />
+	<form:input path="creditCard.cvv" />
+	<br/>
+	
+	</fieldset>	<br />
 
 	<input type="submit" name="save"
 		value="<spring:message code="applicationFor.save" />" />&nbsp; 
 	<jstl:if test="${applicationFor.id != 0}">
 		<input type="submit" name="delete"
 			value="<spring:message code="applicationFor.delete" />"
-			onclick="return confirm('<spring:message code="applicationFor.confirm.delete" />')" />&nbsp;
+			onclick="javascript: return confirm('<spring:message code="applicationFor.confirm.delete" />')" />&nbsp;
 	</jstl:if>
 	<input type="button" name="cancel"
 		value="<spring:message code="applicationFor.cancel" />"
-		onclick="javascript: relativeRedir('applicationFor/explorer/list.do');" />
+		onclick="javascript:  window.location.replace('applicationFor/explorer/list.do');" />
 	<br />
 </form:form>
