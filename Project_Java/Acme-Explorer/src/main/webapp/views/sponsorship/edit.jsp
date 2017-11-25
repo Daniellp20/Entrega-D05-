@@ -89,9 +89,9 @@
 	<form:label path="trip">
 		<spring:message code="sponsorship.trip" />:
 	</form:label>
-	<form:select id="trip" path="trip">
+	<form:select id="trips" path="trip">
 	<form:option value="0" label="----" />
-	<form:options items="${trip}" itemValue="id" itemLabel="title"/>
+	<form:options items="${trips}" itemValue="id" itemLabel="title"/>
 	</form:select>
 	<br />
 	
