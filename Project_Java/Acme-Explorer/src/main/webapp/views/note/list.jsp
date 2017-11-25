@@ -23,18 +23,19 @@
 <display:table pagesize="5" class="displaytag" keepStatus="true"
 	name="notes" requestURI="${requestURI}" id="row">
 	
+	
 	<security:authorize access="hasRole('AUDITOR')">
 		<display:column>
 			<spring:url value="note/auditor/edit.do" var="editURL">
-				<spring:param name="eventId" value="${row.id}" />
+				<spring:param name="noteId" value="${row.id}" />
 			</spring:url>
 			<a href="${editURL}"><spring:message code="note.edit" /></a>
 		</display:column>
 	</security:authorize>
 	
 	<display:column>
-		<spring:url value="note/auditor/display.do" var="editURL">
-			<spring:param name="eventId" value="${row.id}" />
+		<spring:url value="note/display.do" var="editURL">
+			<spring:param name="noteId" value="${row.id}" />
 		</spring:url>
 		<a href="${editURL}"><spring:message code="note.display" /></a>
 	</display:column>
@@ -53,3 +54,9 @@
 	
 	
 </display:table>
+
+<security:authorize access="hasRole('AUDITOR')">
+      <a href="note/auditor/create.do">
+        <spring:message  code="note.create" />
+      </a>  
+</security:authorize>

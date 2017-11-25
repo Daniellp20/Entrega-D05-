@@ -23,6 +23,9 @@
 
 	<form:hidden path="id" />
 	<form:hidden path="version" />
+	<form:hidden path="socialIdentities"/>
+	<form:hidden path="messagesFolders"/>
+	<form:hidden path="userAccount"/>
 	
 	<form:label path="name">
 		<spring:message code="actor.name" />:
@@ -61,10 +64,10 @@
 	
 	<input type="submit" name="save"
 		value="<spring:message code="actor.save" />" />&nbsp; 
-	<jstl:if test="${event.id != 0}">
+	<jstl:if test="${actor.id != 0}">
 		<input type="submit" name="delete"
 			value="<spring:message code="actor.delete" />"
-			onclick="return confirm('<spring:message code="actor.confirm.delete" />')" />&nbsp;
+			onclick="javascript: return confirm('<spring:message code="actor.confirm.delete" />')" />&nbsp;
 	</jstl:if>
 	<input type="button" name="cancel"
 		value="<spring:message code="actor.cancel" />"
