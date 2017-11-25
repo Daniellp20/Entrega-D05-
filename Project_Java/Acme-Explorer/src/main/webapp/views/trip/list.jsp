@@ -22,6 +22,36 @@
 
 <!-- Listing trips -->
 
+<form:form>
+
+	<form:label path="ticker.name" var="name">
+		<spring:message code="trip.ticker" />:
+	</form:label>
+	<form:input path="ticker.name" />
+	
+		<form:label path="trip.title" var="title">
+		<spring:message code="trip.title" />:
+	</form:label>
+	<form:input path="trip.title" />
+		
+		<form:label path="trip.description" var="description">
+		<spring:message code="trip.description" />:
+	</form:label>
+	<form:input path="ticker.description" />
+	
+	<%-- 
+	<spring:url value="applicationFor/manager/edit.do" var="editlink">
+	<spring:param name="ticker" value="ticker" />
+	<spring:param name="title" value="title" />
+	<spring:param name="description" value="description" />
+		</spring:url>
+		<a href="${editlink}"><spring:message code="applicationfor.edit" /></a>
+	 --%>
+	
+	<input type="submit" name="search"
+		value="<spring:message code="trip.shearch"/>" />&nbsp;
+		
+</form:form>
 <display:table pagesize="5" class="displaytag" keepStatus="true"
 	name="trips" requestURI="${requestURI}" id="row">
 
