@@ -21,21 +21,27 @@
 
 // TODO: TO BE COMPLETED
 <display:table pagesize="5" class="displaytag" keepStatus="true"
-	name="applicationFor" requestURI="applicationFor/auditor/list.do"
+	name="applicationFor" requestURI="${requestURI}"
 	id="row">
 	<spring:message code="applicationfor.format.date" var="pattern"></spring:message>
-	<spring:message code="applicationfor.moment" var="moment"/>
-	<display:column property="moment" title="${moment}" sortable="true" format="${pattern}"/>
-	<spring:message code="applicationfor.status" var="status" />
-	<display:column property="status" title="${status}" sortable="true" />
-	<spring:message code="applicationfor.reason" var="reasonWhy" />
-	<display:column property="reasonWhy" title="${reasonWhy}" sortable="true" />
-	<spring:message code="applicationfor.creditcard" var="creditCard" />
-	<display:column property="creditCard" title="${creditCard}" sortable="true" />
-
-<security:authorize access="hasRole('MANAGER')">
+	<spring:message code="applicationfor.moment" var="momentHeader"/>
+	<display:column property="moment" title="${momentHeader}" sortable="true" format="${pattern}"/>
+	<spring:message code="applicationfor.status" var="statusHeader" />
+	<display:column property="status" title="${statusHeader}" sortable="true" />
+	<spring:message code="applicationfor.reason" var="reasonWhyHeader" />
+	<display:column property="reasonWhy" title="${reasonWhyHeader}" sortable="true" />
+	<spring:message code="applicationfor.creditcard" var="creditCardHeader" />
+	<display:column property="creditCard" title="${creditCardHeader}" sortable="true" />
 	<display:column>
-		<spring:url value="applicationFor/manager/edit.do" var="editlink">
+		<spring:url value="trip/list.do" var="tripListURL">
+		<spring:param name="applicationForId" value="${row.id}"/>
+		</spring:url>
+		<a href="${tripListURL}"><spring:message code="applicationfor.trip"/></a>
+	</display:column>
+
+<security:authorize access="hasRole('EXPLORER')">
+	<display:column>
+		<spring:url value="applicationFor/explorer/edit.do" var="editlink">
 			<spring:param name="applicationForId" value="${row.id}" />
 		</spring:url>
 		<a href="${editlink}"><spring:message code="applicationfor.edit" /></a>
