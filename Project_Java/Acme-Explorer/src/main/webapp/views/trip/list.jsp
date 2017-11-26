@@ -92,9 +92,6 @@
 	<spring:message code="trip.finishDate" var="finishDateHeader" />
 	<display:column property="finishDate" title="${finishDateHeader}" sortable="true" />
 	
-	<spring:message code="trip.ranger.name" var="rangerNameHeader" />
-	<display:column property="ranger.name" title="${rangerNameHeader}" sortable="true" />
-	
 	<display:column>
 		<spring:url value="ranger/list.do" var="rangerListURL">
 		<spring:param name="tripId" value="${row.id}"/>
