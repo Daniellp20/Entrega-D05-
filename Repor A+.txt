@@ -1,0 +1,47 @@
+**********************************************************
+*************************** A+ ***************************
+**********************************************************
+a. Implement a paginated repository to retrieve pages of trips. 
+Write a simple check that allows to confirm that it’s working well. 
+Change the correspond-ing views so that they use that repository appropriately.
+b. Write a 1 000 report on paginated repositories.
+
+
+
+**********************************************************
+********************* REPOSITORIOS ***********************
+**********************************************************
+
+If we create our JPQL queries by using the @Query annotation,
+we can paginate the query results by following these steps:
+1. Remove the sorting logic from the JPQL query. (No entiendo que quiere decir con ello)
+2. Add a new method parameter (Pageable object) to the query method. (En la query añadimos Pageable pageable)
+3. Decide the returned type. We can return List<T>, Slice<T>, or Page<T> objects. (Lo que podemos devolver)
+
+*Example
+ -->@Query("select e from Event e where ?1 member of e.customers")
+	Collection<Event> findByCustomerId(int customerId, Pageable pageable);
+
+
+
+**********************************************************
+******************** SERVICIOS ***************************
+**********************************************************
+
+*Request parameters evaluated for Pageable instances
+page -> Page you want to retrieve, 0 indexed and defaults to 0.
+size -> Size of the page you want to retrieve, defaults to 20.
+sort -> Properties that should be sorted by in the format property,property(,ASC|DESC).
+Default sort direction is ascending.Use multiple sort parameters if you want to switch directions, e.g. ?sort=firstname&sort=lastname,asc.
+
+*Example
+If we want to get the second page by using page size 10 and sort the query results in descending order by using the value of the title fiel, 
+we have to create the Pageable object by using the following code:
+ -->result = this.eventRepository.findByCustomerId(customer.getId(), new PageRequest(1, 10, new Sort(Sort.Direction.DESC, "title")));
+
+
+
+BIBLIOGRAFÍA
+https://www.petrikainulainen.net/programming/spring-framework/spring-data-jpa-tutorial-part-seven-pagination/
+https://dzone.com/articles/pagination-in-springboot-applications
+https://docs.spring.io/spring-data/jpa/docs/1.8.x/reference/html/Example
