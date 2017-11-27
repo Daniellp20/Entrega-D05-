@@ -28,92 +28,92 @@
 		<spring:message code="trip.search" />:
 	</form:label>
 	<form:input path="search" />
-	
-	<form:label path="lowprice">
-		<spring:message code="trip.lowprice" />:
+
+	<security:authorize access="hasRole('MANAGER')">
+		<form:label path="lowprice">
+			<spring:message code="trip.lowprice" />:
 	</form:label>
-	<form:input path="lowprice" />
-	
-	<form:label path="highprice">
-		<spring:message code="trip.highprice" />:
+		<form:input path="lowprice" />
+
+		<form:label path="highprice">
+			<spring:message code="trip.highprice" />:
 	</form:label>
-	<form:input path="highprice" />
-		
-	<form:label path="trip.startDate">
-		<spring:message code="trip.startDate" />:
+		<form:input path="highprice" />
+
+		<form:label path="trip.startDate">
+			<spring:message code="trip.startDate" />:
 	</form:label>
-	<form:input path="startDate" />
-	
-	<form:label path="trip.finishDate">
-		<spring:message code="trip.finishDate" />:
+		<form:input path="startDate" />
+
+		<form:label path="trip.finishDate">
+			<spring:message code="trip.finishDate" />:
 	</form:label>
-	<form:input path="finishDate" />
-	
-	
-	<%-- 
+		<form:input path="finishDate" />
+
+	</security:authorize>
+
 	<spring:url value="applicationFor/manager/edit.do" var="editlink">
-	<spring:param name="ticker" value="ticker" />
-	<spring:param name="title" value="title" />
-	<spring:param name="description" value="description" />
-		</spring:url>
-		<a href="${editlink}"><spring:message code="applicationfor.edit" /></a>
-	 --%>
-	
+		<spring:param name="search" value="search" />
+		<spring:param name="lowprice" value="lowprice" />
+		<spring:param name="highprice" value="highprice" />
+		<spring:param name="startDate" value="startDate" />
+		<spring:param name="finishDate" value="finishDate" />
+	</spring:url>
 	<input type="submit" name="search"
-		value="<spring:message code="trip.search"/>" />&nbsp;
+		value="<spring:message code="trip.search"/>"
+		onClick=" window.location.href='${editlink}' ">/>&nbsp;
 		
 </form:form>
+
 <display:table pagesize="5" class="displaytag" keepStatus="true"
 	name="trips" requestURI="${requestURI}" id="row">
 
 	<display:column>
-		<spring:url value="trip/display.do"
-			var="displaydURL">
+		<spring:url value="trip/display.do" var="displaydURL">
 			<spring:param name="tripId" value="${row.id}" />
 		</spring:url>
-		<a href="${displayURL}"><spring:message
-				code="trip.display" /></a>
+		<a href="${displayURL}"><spring:message code="trip.display" /></a>
 	</display:column>
-	
+
 	<security:authorize access="hasRole('MANAGER')">
 		<jstl:if test="${publicated==false}">
 			<display:column>
-				<spring:url value="trip/manager/edit.do"
-					var="editURL">
+				<spring:url value="trip/manager/edit.do" var="editURL">
 					<spring:param name="tripId" value="${row.id}" />
 				</spring:url>
-				<a href="${editURL}"><spring:message
-						code="trip.edit" /></a>
+				<a href="${editURL}"><spring:message code="trip.edit" /></a>
 			</display:column>
 		</jstl:if>
-		</security:authorize>
-	
-	
-	
+	</security:authorize>
+
+
+
 	<!-- Attributes -->
 	<spring:message code="trip.title" var="titleHeader" />
 	<display:column property="title" title="${titleHeader}" sortable="true" />
-	
+
 	<spring:message code="trip.price" var="priceHeader" />
 	<display:column property="price" title="${priceHeader}" sortable="true" />
-	
+
 	<spring:message code="trip.startDate" var="startDateHeader" />
-	<display:column property="startDate" title="${startDateHeader}" sortable="true" />
-	
+	<display:column property="startDate" title="${startDateHeader}"
+		sortable="true" />
+
 	<spring:message code="trip.finishDate" var="finishDateHeader" />
-	<display:column property="finishDate" title="${finishDateHeader}" sortable="true" />
-	
+	<display:column property="finishDate" title="${finishDateHeader}"
+		sortable="true" />
+
 	<display:column>
 		<spring:url value="ranger/list.do" var="rangerListURL">
-		<spring:param name="tripId" value="${row.id}"/>
+			<spring:param name="tripId" value="${row.id}" />
 		</spring:url>
-		<a href="${rangerListURL}"><spring:message code="trip.ranger"/></a>
+		<a href="${rangerListURL}"><spring:message code="trip.ranger" /></a>
 	</display:column>
-	
-	
-	
-	
-	
+
+
+
+
+
 </display:table>
 
 <security:authorize access="hasRole('MANAGER')">

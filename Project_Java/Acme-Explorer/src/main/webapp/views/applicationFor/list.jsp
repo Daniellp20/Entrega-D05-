@@ -19,7 +19,6 @@
 <%@taglib prefix="security" uri="http://www.springframework.org/security/tags"%>
 <%@taglib prefix="display" uri="http://displaytag.sf.net"%>
 
-// TODO: TO BE COMPLETED
 <display:table pagesize="5" class="displaytag" keepStatus="true"
 	name="applicationFor" requestURI="${requestURI}"
 	id="row">
@@ -30,8 +29,8 @@
 	<display:column property="status" title="${statusHeader}" sortable="true" />
 	<spring:message code="applicationfor.reason" var="reasonWhyHeader" />
 	<display:column property="reasonWhy" title="${reasonWhyHeader}" sortable="true" />
-	<spring:message code="applicationfor.creditcard" var="creditCardHeader" />
-	<display:column property="creditCard" title="${creditCardHeader}" sortable="true" />
+	<spring:message code="applicationfor.creditCard.holderName" var="creditCardHeader" />
+	<display:column property="creditCard.holderName" title="${creditCardHeader}" sortable="true" />
 	<display:column>
 		<spring:url value="trip/list.do" var="tripListURL">
 		<spring:param name="applicationForId" value="${row.id}"/>
