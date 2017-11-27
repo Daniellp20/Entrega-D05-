@@ -45,11 +45,5 @@
 		<jstl:out value="${row.attachments}"></jstl:out>
 	</p>
 
-	<!-- botón -->
-	
-	<input type="button" name="cancel"
-		value="<spring:message code="auditRecord.cancel"/>"
-		onclick="javascript: window.location.replace('auditRecord/auditor/list.do')" />
-	<br />
 
  </display:table>

@@ -104,7 +104,7 @@
 	<form:label path="category">
 		<spring:message code="trip.category" />:
 	</form:label>
-	<form:select id="categoriess" path="category" >
+	<form:select id="categories" path="category" >
 		<form:option value="0" label="----" />		
 		<form:options items="${categories}" itemValue="id"
 			itemLabel="name" />
@@ -121,6 +121,6 @@
 	</jstl:if>
 	<input type="button" name="cancel"
 		value="<spring:message code="trip.cancel" />"
-		onclick="javascript:  window.location.replace('trip/explorer/list.do');" />
+		onclick="javascript:  window.location.replace('trip/manager/list.do');" />
 	<br />
 </form:form>
