@@ -48,4 +48,7 @@ public interface TripRepository extends JpaRepository<Trip, Integer> {
 	@Query("select t from Trip t join t.tags tag where tag.id=?1")
 	Collection<Trip> findAllTripsByTagId(int tagId);
 
+	@Query("select t from Trip t where t.ticker like %?1% or t.title like %?1% or t.description like %?1%")
+	Collection<Trip> searchingForTrips(String search);
+
 }

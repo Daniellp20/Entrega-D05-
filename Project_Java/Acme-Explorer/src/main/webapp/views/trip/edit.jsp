@@ -100,17 +100,6 @@
 	</form:select>
 	<form:errors cssClass="error" path="tag" />
 	<br />
-	
-	<form:label path="category">
-		<spring:message code="trip.category" />:
-	</form:label>
-	<form:select id="categories" path="category" >
-		<form:option value="0" label="----" />		
-		<form:options items="${categories}" itemValue="id"
-			itemLabel="name" />
-	</form:select>
-	<form:errors cssClass="error" path="category" />
-	<br />
 
 	<input type="submit" name="save"
 		value="<spring:message code="trip.save" />" />&nbsp; 
