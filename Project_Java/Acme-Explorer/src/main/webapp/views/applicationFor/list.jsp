@@ -25,12 +25,16 @@
 	<spring:message code="applicationfor.format.date" var="pattern"></spring:message>
 	<spring:message code="applicationfor.moment" var="momentHeader"/>
 	<display:column property="moment" title="${momentHeader}" sortable="true" format="${pattern}"/>
+	
 	<spring:message code="applicationfor.status" var="statusHeader" />
 	<display:column property="status" title="${statusHeader}" sortable="true" />
+	
 	<spring:message code="applicationfor.reason" var="reasonWhyHeader" />
 	<display:column property="reasonWhy" title="${reasonWhyHeader}" sortable="true" />
+	
 	<spring:message code="applicationfor.creditCard.holderName" var="creditCardHeader" />
 	<display:column property="creditCard.holderName" title="${creditCardHeader}" sortable="true" />
+	
 	<display:column>
 		<spring:url value="trip/list.do" var="tripListURL">
 		<spring:param name="applicationForId" value="${row.id}"/>
