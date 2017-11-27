@@ -23,7 +23,7 @@
 <!-- Display survival Class -->
 
 <display:table name="survivalClass" class="displaytag"
-	requestURI="survivalClass/display.do" id="row">
+	requestURI="${requestURI }" id="row">
 
 	<!-- Attributes -->
 
@@ -45,6 +45,21 @@
 		<spring:message code="survivalClass.location" />
 		<jstl:out value="${row.location }"></jstl:out>
 	</p>
+	
+	<p>
+		<spring:message code="survivalClass.managerName" />
+		<jstl:out value="${row.manager.name }"></jstl:out>
+	</p>
+	
+	<p>
+		<spring:message code="survivalClass.explorersName" />
+		<jstl:out value="${row.explorers.name }"></jstl:out>
+	</p>
+	
+	<p>
+		<spring:message code="survivalClass.tripTitle" />
+		<jstl:out value="${row.trip.title }"></jstl:out>
+	</p>
 
 	<security:authorize access="hasRole('EXPLORER')">
 		<jstl:if test="${registered==false}">
@@ -57,14 +72,6 @@
 						code="survivalClass.register" /></a>
 			</display:column>
 		</jstl:if>
-		
-		<display:column>
-			<spring:url value="survivalClass/explorer/list.do"
-				var="cancelURL">
-			</spring:url>
-			<a href="${cancelURL}"><spring:message
-					code="survivalClass.cancel" /></a>
-		</display:column>
 	</security:authorize>
 
 
