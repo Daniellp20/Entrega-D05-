@@ -30,9 +30,12 @@
 	<spring:message code="sponsorship.bannerURL" />
 		<jstl:out value="${row.bannerURL.filename}"></jstl:out>
 	</p>
-	<p>
-		<spring:message code="sponsorship.trip" />
-		<jstl:out value="${row.trip}"></jstl:out>
-	</p>
+
+	<display:column>
+		<spring:url value="trip/sponsor/display.do" var="displayURL">
+		<spring:param name="tripId" value="${row.id}"/>
+		</spring:url>
+		<a href="${displayURL}"><spring:message code="sponsorship.trip.display"/></a>
+		</display:column>
 
 </display:table>
