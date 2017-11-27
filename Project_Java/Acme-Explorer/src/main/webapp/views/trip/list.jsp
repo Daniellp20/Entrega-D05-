@@ -86,6 +86,17 @@
 		</jstl:if>
 	</security:authorize>
 
+	<security:authorize access="hasRole('EXPLORER)">
+		<jstl:if test="${demand==false }">
+			<display:column>
+				<spring:url value="trip/explorer/apply.do" var="applyURL">
+					<spring:param name="tripId" value="${row.id }" />
+				</spring:url>
+				<a href="${applyURL}"><spring:message code="trip.apply" /></a>
+			</display:column>
+		</jstl:if>
+	</security:authorize>
+
 
 
 	<!-- Attributes -->
@@ -102,16 +113,6 @@
 	<spring:message code="trip.finishDate" var="finishDateHeader" />
 	<display:column property="finishDate" title="${finishDateHeader}"
 		sortable="true" />
-
-	<display:column>
-		<spring:url value="ranger/list.do" var="rangerListURL">
-			<spring:param name="tripId" value="${row.id}" />
-		</spring:url>
-		<a href="${rangerListURL}"><spring:message code="trip.ranger" /></a>
-	</display:column>
-
-
-
 
 
 </display:table>
