@@ -19,7 +19,7 @@
 <%@taglib prefix="security"	uri="http://www.springframework.org/security/tags"%>
 <%@taglib prefix="display" uri="http://displaytag.sf.net"%>
 
-// TODO: TO BE COMPLETED
+
 
 <display:table name="sponsorship" class="displaytag"
   requestURI="sponsorship/display.do" id="row">
@@ -35,12 +35,4 @@
 		<jstl:out value="${row.trip}"></jstl:out>
 	</p>
 
-	<!-- botón -->
-	
-	<input type="button" name="cancel"
-		value="<spring:message code="sponsorship.cancel"/>"
-		onclick="javascript: window.location.replace('sponsorship/sponsor/list.do')" />
-	<br />
-
-	<p>
 </display:table>
