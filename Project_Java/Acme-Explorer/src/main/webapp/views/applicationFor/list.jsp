@@ -46,8 +46,17 @@
 		<a href="${editlink}"><spring:message code="applicationfor.edit" /></a>
 	</display:column>
 </security:authorize>
-</display:table>
 
+<security:authorize access="hasRole('ADMINISTRATOR')">
+	<display:column>
+		<spring:url value="applicationFor/administrator/edit.do" var="editlink">
+			<spring:param name="applicationForId" value="${row.id}" />
+		</spring:url>
+		<a href="${editlink}"><spring:message code="applicationfor.edit" /></a>
+	</display:column>
+</security:authorize>
+
+</display:table>
 <security:authorize access="hasRole('EXPLORER')">
 	<spring:url value="applicationFor/explorer/create.do" var="linkcreate" />
 	<a href="${linkcreate}"><spring:message code="applicationfor.create" /></a>
