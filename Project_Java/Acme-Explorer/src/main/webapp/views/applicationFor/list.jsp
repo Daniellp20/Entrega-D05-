@@ -41,6 +41,7 @@
 		</spring:url>
 		<a href="${tripListURL}"><spring:message code="applicationfor.trip"/></a>
 	</display:column>
+	
 
 <security:authorize access="hasRole('EXPLORER')">
 	<display:column>

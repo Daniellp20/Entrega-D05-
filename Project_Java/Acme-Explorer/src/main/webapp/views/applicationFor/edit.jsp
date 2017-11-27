@@ -28,21 +28,10 @@
 	<form:hidden path="reasonWhy"/>
 
 	<form:label path="moment">
-		<spring:message code="applicationfor.moment" />:
+		<spring:message code="applicationFor.moment" />:
 	</form:label>
-	<form:input path="moment" placeholder=" yyyy/dd/MM HH:hh" />
+	<form:input path="moment" readonly="true"/>
 	<form:errors cssClass="error" path="moment" />
-	<br />
-	
-	<form:label path="trip">
-		<spring:message code="applicationFor.trip" />:
-	</form:label>
-	<form:select id="trips" path="trip" >
-		<form:option value="0" label="----" />		
-		<form:options items="${trips}" itemValue="id"
-			itemLabel="title" />
-	</form:select>
-	<form:errors cssClass="error" path="trip" />
 	<br />
 	
 	<form:label path="status">
