@@ -248,6 +248,11 @@ public class TripService {
 		return res;
 	}
 
+	public Collection<Trip> searchingForTrips(String search) {
+		Collection<Trip> res;
+		res = this.tripRepository.searchingForTrips(search);
+		return res;
+	}
 	//	public void setPriceOfTrip(Trip trip) {
 	//		Collection<Stage> stagesOfTrip;
 	//		Double priceOfTrip;

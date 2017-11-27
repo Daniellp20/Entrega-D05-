@@ -273,6 +273,15 @@ public class TripServiceTest extends AbstractTest {
 	}
 
 	@Test
+	public void testSearchingForTrips() {
+		Collection<Trip> trips;
+		String search;
+		search = "description";
+		trips = new ArrayList<>(this.tripService.searchingForTrips(search));
+		Assert.notNull(trips);
+	}
+
+	@Test
 	public void testFindPrice() {
 		Trip trip;
 		trip = this.tripService.findOne(super.getEntityId("trip1"));
