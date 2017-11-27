@@ -24,20 +24,31 @@
 
 <form:form action="trip/list.do" modelAttribute="trip">
 
-	<form:label path="ticker">
-		<spring:message code="trip.ticker" />:
+	<form:label path="search">
+		<spring:message code="trip.search" />:
 	</form:label>
-	<form:input path="ticker" />
+	<form:input path="search" />
 	
-	<form:label path="title">
-		<spring:message code="trip.title" />:
+	<form:label path="lowprice">
+		<spring:message code="trip.lowprice" />:
 	</form:label>
-	<form:input path="title" />
+	<form:input path="lowprice" />
+	
+	<form:label path="highprice">
+		<spring:message code="trip.highprice" />:
+	</form:label>
+	<form:input path="highprice" />
 		
-	<form:label path="trip.description" var="description">
-		<spring:message code="trip.description" />:
+	<form:label path="trip.startDate">
+		<spring:message code="trip.startDate" />:
 	</form:label>
-	<form:input path="description" />
+	<form:input path="startDate" />
+	
+	<form:label path="trip.finishDate">
+		<spring:message code="trip.finishDate" />:
+	</form:label>
+	<form:input path="finishDate" />
+	
 	
 	<%-- 
 	<spring:url value="applicationFor/manager/edit.do" var="editlink">
@@ -99,12 +110,7 @@
 		<a href="${rangerListURL}"><spring:message code="trip.ranger"/></a>
 	</display:column>
 	
-	<display:column>
-		<spring:url value="auditRecord/list.do" var="auditRecordListURL">
-		<spring:param name="tripId" value="${row.id}"/>
-		</spring:url>
-		<a href="${auditRecordListURL}"><spring:message code="trip.auditRecord"/></a>
-	</display:column>
+	
 	
 	
 	
