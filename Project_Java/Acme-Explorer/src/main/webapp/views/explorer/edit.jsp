@@ -83,7 +83,7 @@
 	</security:authorize>
 	
 	<input type="submit" name="save"
-		value="<spring:message code="explorer.save" />" />&nbsp; 
+		value="<spring:message code="explorer.save" />" onclick="valida();"/>&nbsp; 
 	<jstl:if test="${explorer.id != 0}">
 		<input type="submit" name="delete"
 			value="<spring:message code="explorer.delete" />"
