@@ -42,6 +42,18 @@
 	</form:select>
 	<br />
 	
+	<form:label path="trip">
+		<spring:message code="applicationFor.trip" />:
+	</form:label>
+	<form:select id="trips" path="trip" >
+		<form:option value="0" label="----" />		
+		<form:options items="${trips}" itemValue="id"
+			itemLabel="title" />
+	</form:select>
+	<form:errors cssClass="error" path="trip" />
+	<br />
+	
+	
 	<fieldset>
 	
 	<form:label path="creditCard.holderName">
