@@ -30,28 +30,6 @@
 	<spring:message code="applicationfor.status" var="statusHeader" />
 	<display:column property="status" title="${statusHeader}"
 		sortable="true" />
-	<jstl:choose>
-		<jstl:when test="${status}=='PENDING' <%-- && (${moment}-${now}) --%>">
-		<body style="background-color:red;">
-		</jstl:when>
-		
-		<jstl:when test="${status}=='REJECTED'">
-			<body style="background-color:grey;">
-		</jstl:when>
-		
-		<jstl:when test="${status}=='DUE'">
-		<body style="background-color:yellow;">
-		</jstl:when>
-		
-		<jstl:when test="${status}=='ACCEPTED'">
-		<body style="background-color:green;">
-		</jstl:when>
-		
-		<jstl:when test="${status}=='CANCELLED'">
-		<body style="background-color:cyan;">
-		</jstl:when>
-		
-	</jstl:choose>
 
 	<spring:message code="applicationfor.reason" var="reasonWhyHeader" />
 	<display:column property="reasonWhy" title="${reasonWhyHeader}"
