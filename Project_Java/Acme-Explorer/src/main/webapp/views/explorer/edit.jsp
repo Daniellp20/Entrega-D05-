@@ -43,6 +43,8 @@
 		<br /><br />
 	</jstl:if>
 	
+	<security:authorize access="hasRole('EXPLORER')">
+	
 	<form:label path="name">
 		<spring:message code="explorer.name" />:
 	</form:label>
@@ -77,6 +79,8 @@
 	<form:input path="phone" />
 	<form:errors cssClass="error" path="phone" />
 	<br />
+	
+	</security:authorize>
 	
 	<input type="submit" name="save"
 		value="<spring:message code="explorer.save" />" />&nbsp; 

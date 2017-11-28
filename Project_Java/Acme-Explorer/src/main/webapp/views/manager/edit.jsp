@@ -27,6 +27,8 @@
 	<form:hidden path="messagesFolders"/>
 	<form:hidden path="userAccount"/>
 	
+	<security:authorize access="hasRole('MANAGER')">
+	
 	<form:label path="name">
 		<spring:message code="manager.name" />:
 	</form:label>
@@ -61,6 +63,8 @@
 	<form:input path="phone" />
 	<form:errors cssClass="error" path="phone" />
 	<br />
+	
+	</security:authorize>
 	
 	<input type="submit" name="save"
 		value="<spring:message code="manager.save" />" />&nbsp; 
