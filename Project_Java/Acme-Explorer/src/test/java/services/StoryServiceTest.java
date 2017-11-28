@@ -4,6 +4,9 @@ package services;
 import java.util.ArrayList;
 import java.util.Collection;
 
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,6 +36,10 @@ public class StoryServiceTest extends AbstractTest {
 
 	@Autowired
 	private TripService		tripService;
+
+	// A++ saveAndFlush (permite realizar flush llamando al metodo flush de este objeto)
+	@PersistenceContext
+	private EntityManager	entityManager;
 
 
 	@Test
@@ -67,14 +74,12 @@ public class StoryServiceTest extends AbstractTest {
 
 		story = this.storyService.save(story);
 		Assert.notNull(story.getId());
-		//Compruebo que tiene esta Story el explorerPrincipal y la trip1 desde la bd
-		//Para que funcione el siguiente codigo cambiar el metodo save a saveAndFlush de storyRepository en storyService
-		//El codigo solo se comenta en las relaciones bidireccionales porque tiene que guardarse en la bd primero para que se actualice sus objetos relacionados
-		//Assert.isTrue(story.getExplorer().getStories().contains(story));
+		//Hago flush en la bd
+		this.entityManager.flush();
+		Assert.isTrue(story.getExplorer().getStories().contains(story));
 
 		super.unauthenticate();
 	}
-
 	@Test
 	public void testFindAllPositive() {
 		Collection<Story> storys;
