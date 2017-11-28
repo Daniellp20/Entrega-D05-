@@ -69,7 +69,7 @@
 
 	<spring:message code="survivalClass.tripTitle" var="tripTitleHeader" />
 	<display:column property="trip.title" title="${tripTitleHeader }"
-		href="trip/manager/list.do" />
+		href="trip/display.do?tripId=${row.trip.id}" />
 
 </display:table>
 
