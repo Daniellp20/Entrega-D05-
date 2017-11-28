@@ -47,6 +47,7 @@
 	</p>
 	
 	<p>
+	
 		<spring:message code="survivalClass.managerName" />
 		<jstl:out value="${row.manager.name }"></jstl:out>
 	</p>
