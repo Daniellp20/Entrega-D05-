@@ -22,7 +22,7 @@
 
 
 
-<form:form action="administrator/dministrator/edit.do" modelAttribute="administrator">
+<form:form action="administrator/edit.do" modelAttribute="administrator">
 
 	<form:hidden path="id" />
 	<form:hidden path="version" />

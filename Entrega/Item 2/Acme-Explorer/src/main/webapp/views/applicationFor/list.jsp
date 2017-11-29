@@ -22,7 +22,6 @@
 
 <display:table pagesize="5" class="displaytag" keepStatus="true"
 	name="applicationFor" requestURI="${requestURI}" id="row">
-	
 	<spring:message code="applicationfor.format.date" var="pattern"></spring:message>
 	<spring:message code="applicationfor.moment" var="momentHeader" />
 	<display:column property="moment" title="${momentHeader}"
