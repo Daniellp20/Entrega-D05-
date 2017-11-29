@@ -22,7 +22,7 @@
 
 
 <display:table name="sponsorship" class="displaytag"
-  requestURI="sponsorship/display.do" id="row">
+  requestURI="sponsorship/sponsor/display.do" id="row">
   
   <spring:message code="sponsorship.link" />
 	<jstl:out value="${row.link}"></jstl:out>
