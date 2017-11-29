@@ -69,7 +69,7 @@
 	<form:errors cssClass="error" path="phone" />
 	<br />
 	
-	</security:authorize>
+	
 	
 	<script type="text/javascript">
 		function valida(phone) {
@@ -95,5 +95,7 @@
 		value="<spring:message code="administrator.cancel" />"
 		onclick="javascript: window.location.replace('welcome/index.do');" />
 	<br />
+	
+	</security:authorize>
 	
 </form:form>

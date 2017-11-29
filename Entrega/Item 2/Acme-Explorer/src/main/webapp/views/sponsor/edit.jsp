@@ -26,6 +26,7 @@
 	<form:hidden path="socialIdentities"/>
 	<form:hidden path="messagesFolders"/>
 	<form:hidden path="userAccount"/>
+	<form:hidden path="sponsorships"/>
 	
 	<security:authorize access="hasRole('SPONSOR')">
 	
@@ -64,7 +65,7 @@
 	<form:errors cssClass="error" path="phone" />
 	<br />
 	
-	</security:authorize>
+	
 	
 	<script type="text/javascript">
 		function valida(phone) {
@@ -90,5 +91,7 @@
 		value="<spring:message code="sponsor.cancel" />"
 		onclick="javascript: window.location.replace('welcome/index.do');" />
 	<br />
+	
+	</security:authorize>
 	
 </form:form>

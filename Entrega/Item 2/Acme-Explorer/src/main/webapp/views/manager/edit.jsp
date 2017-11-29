@@ -26,6 +26,8 @@
 	<form:hidden path="socialIdentities"/>
 	<form:hidden path="messagesFolders"/>
 	<form:hidden path="userAccount"/>
+	<form:hidden path="trips"/>
+	<form:hidden path="applicationsFor"/>
 	
 	<security:authorize access="hasRole('MANAGER')">
 	
@@ -64,7 +66,7 @@
 	<form:errors cssClass="error" path="phone" />
 	<br />
 	
-	</security:authorize>
+	
 	
 	<script type="text/javascript">
 		function valida(phone) {
@@ -90,5 +92,7 @@
 		value="<spring:message code="manager.cancel" />"
 		onclick="javascript: window.location.replace('welcome/index.do');" />
 	<br />
+	
+	</security:authorize>
 	
 </form:form>

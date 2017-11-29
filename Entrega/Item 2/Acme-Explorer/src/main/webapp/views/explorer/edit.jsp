@@ -26,6 +26,9 @@
 	<form:hidden path="socialIdentities"/>
 	<form:hidden path="messagesFolders"/>
 	<form:hidden path="userAccount"/>
+	<form:hidden path="stories"/>
+	<form:hidden path="applicationsFor"/>
+	<form:hidden path="contactsEmergency"/>
 	
 	<jstl:if test="${explorer.id == 0}">		
 		<form:label path="userAccount.username">
@@ -80,7 +83,7 @@
 	<form:errors cssClass="error" path="phone" />
 	<br />
 	
-	</security:authorize>
+	
 	
 	<input type="submit" name="save"
 		value="<spring:message code="explorer.save" />" onclick="valida();"/>&nbsp; 
@@ -93,5 +96,6 @@
 		value="<spring:message code="explorer.cancel" />"
 		onclick="javascript: window.location.replace('welcome/index.do');" />
 	<br />
+	</security:authorize>
 	
 </form:form>
